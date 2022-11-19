@@ -13,6 +13,8 @@ interface PeopleGridProps {
   gridBg?: string
   outline?: boolean
   showLetters?: boolean
+  decoding?: "sync" | "async" | "auto"
+  loading?: "lazy" | "eager"
   className?: string
 }
 
@@ -23,6 +25,8 @@ export default function PeopleGrid({
   showLetters,
   showPhone,
   context,
+  decoding,
+  loading,
   className,
 }: PeopleGridProps) {
   const ret: any[] = []
@@ -37,6 +41,8 @@ export default function PeopleGrid({
           photoMode={photoMode}
           showLetters={showLetters}
           showPhone={showPhone}
+          decoding={decoding}
+          loading={loading}
         />
       </li>
     )

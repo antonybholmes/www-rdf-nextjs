@@ -42,6 +42,7 @@ export default function Page({ allPeople }: IProps) {
                 groupMap["Director"].concat(groupMap["Faculty"])
               }
               showUrl={true}
+              loading={"eager"}
             />
           </section>
 

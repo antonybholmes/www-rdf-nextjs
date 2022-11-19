@@ -141,7 +141,7 @@ function BasePublication({
     >
       <VCenterCol className="gap-y-2">
         {showCount && (
-          <div className="flex-none grow-0 text-center text-gray-400">{`${
+          <div className="flex-none grow-0 text-center text-gray-500">{`${
             index + 1
           }`}</div>
         )}

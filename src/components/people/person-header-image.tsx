@@ -50,8 +50,8 @@ export default function PersonHeaderImage({ person }: IProps) {
             alt="Header Image"
             className="h-full w-full"
             style={{ objectFit: "cover" }}
-            width={1600}
-            height={800}
+            size={[1024, 512]}
+            loading="eager"
           />
         </div>
 

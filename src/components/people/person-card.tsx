@@ -18,14 +18,16 @@ interface IPersonCardProps {
   photoMode?: string
   showLetters?: boolean
   showPhone?: boolean
+  decoding?: "sync" | "async" | "auto"
+  loading?: "lazy" | "eager"
 }
 
 export default function PersonCard({
   person,
   showUrl,
   photoMode = "show,generic",
-  showLetters,
-  showPhone,
+  decoding,
+  loading,
 }: IPersonCardProps) {
   const [hover, setHover] = useState(false)
 
@@ -51,14 +53,15 @@ export default function PersonCard({
   if (person.frontmatter.headshot) {
     img = (
       <BWImage
-        src={`/assets/images/people/600x600/${getUrlFriendlyTag(
+        src={`/assets/images/people/${getUrlFriendlyTag(
           person.frontmatter.name
         )}.webp`}
         extZoom={hover}
         alt={alt}
-        className={cn(`w-56 overflow-hidden rounded-full border lg:w-full`, b)}
-        width={200}
-        height={200}
+        className={cn(`w-full overflow-hidden rounded-full border`, b)}
+        size={[640, 640]}
+        decoding={decoding}
+        loading={loading}
       />
     )
   } else {

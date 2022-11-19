@@ -86,18 +86,17 @@ export default function PersonHeaderHoz({
 
   const img = person.frontmatter.headshot ? (
     <BaseImage
-      src={`/assets/images/people/600x600/${person.frontmatter.personId}.webp`}
+      src={`/assets/images/people/${person.frontmatter.personId}.webp`}
       className="w-56 overflow-hidden rounded-full bg-white lg:w-full"
-      width={600}
-      height={600}
+      size={[640, 640]}
       alt={person.frontmatter.name}
     />
   ) : (
     <img
       src="/assets/svg/generic-person.svg"
       className="w-56 overflow-hidden rounded-full bg-white lg:w-full"
-      width={600}
-      height={600}
+      width={640}
+      height={640}
       alt={person.frontmatter.name}
     />
   )

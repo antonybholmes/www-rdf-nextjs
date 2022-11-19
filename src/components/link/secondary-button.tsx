@@ -35,12 +35,7 @@ export default function SecondaryButton({
       ariaLabel={ariaLabel}
       className={cn(
         SECONDARY_BUTTON_CLASSES,
-        "bg-gradient-to-b",
-        [
-          down,
-          "from-gray-200 to-gray-50",
-          [hover, "from-gray-50 to-gray-200", "from-gray-50 to-gray-100"],
-        ],
+        [down, "bg-gray-200", [hover, "bg-gray-100", "bg-gray-50"]],
         className
       )}
       style={style}

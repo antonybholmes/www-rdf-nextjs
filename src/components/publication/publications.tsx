@@ -51,7 +51,7 @@ function Publications({
 
       <VCenterRow>
         <SecondaryButton
-          className="my-4 px-3 py-1 text-sm"
+          className="my-4"
           onClick={() => setShowAll(!showAll)}
           ariaLabel={"Show Abstracts"}
         >

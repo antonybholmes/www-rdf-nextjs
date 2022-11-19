@@ -1,16 +1,9 @@
 import { useState } from "react"
-import IClassProps from "../interfaces/class-props"
-import BaseImage from "./base-image"
+import BaseImage, { IImageProps } from "./base-image"
 
-interface ImageProps extends IClassProps {
-  src: string
+interface ImageProps extends IImageProps {
   extZoom?: any
-  alt: string
-  onMouseEnter?: any
-  onMouseLeave?: any
   colorMode?: boolean
-  width?: number
-  height?: number
 }
 
 export default function BWImage({
@@ -18,51 +11,13 @@ export default function BWImage({
   extZoom,
   alt,
   className,
-  onMouseEnter,
-  onMouseLeave,
   colorMode = true,
-  width = 640,
-  height = 480,
+  size = [640, 640],
+  sizes = [],
+  loading = "lazy",
+  decoding = "async",
 }: ImageProps) {
   const [hover, setHover] = useState(false)
-
-  //const photoEl = useRef(null)
-
-  // useEffect(() => {
-  //   gsap
-  //     .timeline()
-  //     .to(
-  //       photoEl.current,
-  //       0,
-  //       { opacity: extZoom ? 1 : 0.9, ease: "power3.inOut" },
-  //       0
-  //     )
-  //     .to(
-  //       photoEl.current,
-  //       0.5,
-  //       {
-  //         filter: extZoom ? "grayscale(0)" : "grayscale(1)",
-  //         ease: "power3.inOut",
-  //       },
-  //       0
-  //     )
-  // }, [extZoom])
-
-  function handleMouseEnter(e: any) {
-    setHover(true)
-
-    if (onMouseEnter) {
-      onMouseEnter(e)
-    }
-  }
-
-  function handleMouseLeave(e: any) {
-    setHover(false)
-
-    if (onMouseLeave) {
-      onMouseLeave(e)
-    }
-  }
 
   return (
     <BaseImage
@@ -73,10 +28,10 @@ export default function BWImage({
       }}
       className={className}
       alt={alt}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      width={width}
-      height={height}
+      size={size}
+      sizes={sizes}
+      loading={loading}
+      decoding={decoding}
     />
   )
 }

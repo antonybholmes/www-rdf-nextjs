@@ -3,7 +3,7 @@ import cn from "../../lib/class-names"
 import PillButtonLink from "./pill-button-link"
 
 export const BLUE_BUTTON_CLASSES =
-  "bg-blue-500 hover:bg-blue-600 text-white px-4 py-2"
+  "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2"
 
 export default function BlueButtonLink({
   href,

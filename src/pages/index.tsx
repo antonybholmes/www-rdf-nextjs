@@ -22,6 +22,8 @@ export default function Page() {
           src="/assets/images/lab.webp"
           alt="Hands performing bench work."
           className="h-full w-full lg:-ml-16 lg:mt-16 lg:rounded-3xl lg:shadow-2xl"
+          size={[1024, 512]}
+          loading={"eager"}
           style={{ objectFit: "cover" }}
         />
       </div>
@@ -71,8 +73,7 @@ export default function Page() {
                 alt="Diagram of a B-cell."
                 className="h-full w-full"
                 style={{ objectFit: "contain" }}
-                width={1600}
-                height={1000}
+                size={[1024, 512]}
               />
             </BaseLink>
           </div>
@@ -112,8 +113,7 @@ export default function Page() {
             >
               <BaseImage
                 src="/assets/images/umap_bbbb.webp"
-                width={480}
-                height={480}
+                size={[512, 512]}
                 alt="UMAP"
                 className="rounded-3xl bg-white p-4 shadow-2xl lg:p-8"
               />
@@ -127,8 +127,7 @@ export default function Page() {
             >
               <BaseImage
                 src="/assets/images/umap_pseudotime.webp"
-                width={480}
-                height={480}
+                size={[512, 512]}
                 alt="UMAP"
                 className="rounded-3xl bg-white p-4 shadow-2xl lg:p-8"
               />
