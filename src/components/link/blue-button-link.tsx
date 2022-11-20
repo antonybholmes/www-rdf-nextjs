@@ -1,9 +1,9 @@
 import ILinkProps from "../../interfaces/link-props"
 import cn from "../../lib/class-names"
-import PillButtonLink from "./pill-button-link"
+import RoundedButtonLink from "./rounded-button-link"
 
 export const BLUE_BUTTON_CLASSES =
-  "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2"
+  "bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 font-medium text-sm"
 
 export default function BlueButtonLink({
   href,
@@ -13,13 +13,13 @@ export default function BlueButtonLink({
   children,
 }: ILinkProps) {
   return (
-    <PillButtonLink
+    <RoundedButtonLink
       href={href}
       ariaLabel={ariaLabel}
       className={cn(BLUE_BUTTON_CLASSES, className)}
       underline={underline}
     >
       {children}
-    </PillButtonLink>
+    </RoundedButtonLink>
   )
 }

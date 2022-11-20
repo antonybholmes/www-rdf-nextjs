@@ -17,7 +17,7 @@ export default function ContactInfo({
   showPhone = true,
 }: ContactInfoProps) {
   return (
-    <ul className={cn("flex flex-col gap-y-2 text-sm lg:gap-x-4", className)}>
+    <ul className={cn("flex flex-col gap-y-2 lg:gap-x-4", className)}>
       {person.frontmatter.email !== "" && (
         <li>
           <VCenterRow className="gap-2">

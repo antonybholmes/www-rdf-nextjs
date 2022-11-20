@@ -550,5 +550,85 @@
       "laura-pasqualucci",
       "katia-basso"
     ]
+  },
+  {
+    "pmid": "35095922",
+    "pmcid": "PMC8789751",
+    "doi": "10.3389/fimmu.2021.818758",
+    "title": "Tracking Immunoglobulin Repertoire and Transcriptomic Changes in Germinal Center B Cells by Single-Cell Analysis",
+    "abstract": "In response to T-cell-dependent antigens, mature B cells in the secondary lymphoid organs are stimulated to form germinal centers (GCs), which are histological structures deputed to antibody affinity maturation, a process associated with immunoglobulin gene editing by somatic hypermutation (SHM) and class switch recombination (CSR). GC B cells are heterogeneous and transition across multiple stages before being eliminated by apoptosis or committing to post-GC differentiation as memory B cells or plasma cells. In order to explore the dynamics of SHM and CSR during the GC reaction, we identified GC subpopulations by single-cell (sc) transcriptomics and analyzed the load of immunoglobulin variable (V) region mutations as well as the isotype class distribution in each subpopulation. The results showed that the large majority of GC B cells display a quantitatively similar mutational load in the V regions and analogous IGH isotype class distribution, except for the precursors of memory B cells (PreM) and plasma cells (PBL). PreM showed a bimodal pattern with about half of the cells displaying high V region germline identity and enrichment for unswitched IGH, while the rest of the cells carried a mutational load similar to the bulk of GC B cells and showed a switched isotype. PBL displayed a bias toward expression of IGHG and higher V region germline identity compared to the bulk of GC B cells. Genes implicated in SHM and CSR were significantly induced in specific GC subpopulations, consistent with the occurrence of SHM in dark zone cells and suggesting that CSR can occur within the GC.",
+    "authorList": [
+      "Corinaldesi C",
+      "Holmes AB",
+      "Shen Q",
+      "Grunstein E",
+      "Pasqualucci L",
+      "Dalla-Favera R",
+      "Basso K"
+    ],
+    "authors": "Corinaldesi C, Holmes AB, Shen Q, Grunstein E, Pasqualucci L, Dalla-Favera R, Basso K",
+    "journal": "Front Immunol",
+    "year": 2021,
+    "month": -1,
+    "day": -1,
+    "volume": "12",
+    "issue": "",
+    "pages": "818758",
+    "tagList": ["article", "columbia", "icg"],
+    "url": "",
+    "labList": [],
+    "peopleList": [
+      "clarissa-corinaldesi",
+      "antony-holmes",
+      "qiong-shen",
+      "laura-pasqualucci",
+      "riccardo-dalla-favera",
+      "katia-basso"
+    ]
+  },
+  {
+    "pmid": "35794478",
+    "pmcid": "",
+    "doi": "10.1038/s41586-022-04906-8",
+    "title": "Super-enhancer hypermutation alters oncogene expression in B cell lymphoma",
+    "abstract": "Diffuse large B\u00a0cell lymphoma (DLBCL) is the most common B cell non-Hodgkin lymphoma and remains incurable in around 40% of patients. Efforts to sequence the coding genome identified several genes and pathways that are altered in this disease, including potential therapeutic targets                 1-5                . However, the non-coding genome of DLBCL remains largely unexplored. Here we show that active super-enhancers are highly and specifically hypermutated in 92% of samples from individuals with DLBCL, display signatures of activation-induced cytidine deaminase activity, and are linked to genes that encode B cell developmental regulators and oncogenes. As evidence of oncogenic relevance, we show that the hypermutated super-enhancers linked to the BCL6, BCL2 and CXCR4 proto-oncogenes prevent the binding and transcriptional downregulation of the corresponding target gene by transcriptional repressors, including BLIMP1 (targeting BCL6) and the steroid receptor NR3C1 (targeting BCL2 and CXCR4). Genetic correction of selected mutations restored repressor DNA binding, downregulated target gene expression and led to the counter-selection of cells containing corrected alleles, indicating an oncogenic dependency on the super-enhancer mutations. This pervasive super-enhancer mutational mechanism reveals a major set of genetic lesions deregulating gene expression, which expands the involvement of known oncogenes in DLBCL pathogenesis and identifies new deregulated gene targets of therapeutic relevance.",
+    "authorList": [
+      "Bal E",
+      "Kumar R",
+      "Hadigol M",
+      "Holmes AB",
+      "Hilton LK",
+      "Loh JW",
+      "Dreval K",
+      "Wong JCH",
+      "Vlasevska S",
+      "Corinaldesi C",
+      "Soni RK",
+      "Basso K",
+      "Morin RD",
+      "Khiabanian H",
+      "Pasqualucci L",
+      "Dalla-Favera R"
+    ],
+    "authors": "Bal E, Kumar R, Hadigol M, Holmes AB, Hilton LK, Loh JW, Dreval K, Wong JCH, Vlasevska S, Corinaldesi C, Soni RK, Basso K, Morin RD, Khiabanian H, Pasqualucci L, Dalla-Favera R",
+    "journal": "Nature",
+    "year": 2022,
+    "month": 7,
+    "day": -1,
+    "volume": "607",
+    "issue": "7920",
+    "pages": "808-815",
+    "tagList": ["article", "columbia", "icg"],
+    "url": "",
+    "labList": [],
+    "peopleList": [
+      "elodie-bal",
+      "antony-holmes",
+      "sofija-vlasevska",
+      "clarissa-corinaldesi",
+      "katia-basso",
+      "laura-pasqualucci",
+      "riccardo-dalla-favera"
+    ]
   }
 ]

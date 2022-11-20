@@ -1,6 +1,6 @@
 import BlueLink from "../components/link/blue-link"
 import ContentLayout from "../layouts/content-layout"
-import { FOOTER_LINKS, FOOTER_LINKS_2, HEADER_LINKS } from "../menus"
+import { FOOTER_LINKS, INFO_LINKS } from "../menus"
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
       <></>
       <div className="grid grid-cols-2 lg:grid-cols-4">
         <section>
-          <h2 className="mt-4 font-medium">Learn More</h2>
+          <h2 className="font-semibold">Resources</h2>
           {FOOTER_LINKS.map((link: any, i: number) => {
             return (
               <div className="mt-2" key={i}>
@@ -21,24 +21,24 @@ export default function Page() {
         </section>
 
         <section>
-          <h2 className="mt-4 font-medium">About</h2>
+          <h2 className="font-semibold">About</h2>
+          <ul className="mt-2 flex flex-col gap-2">
+            {INFO_LINKS.map(
+              (link: { name: string; url: string }, index: number) => (
+                <li key={index}>
+                  <BlueLink href={link.url} ariaLabel={`View ${link.name}`}>
+                    {link.name}
+                  </BlueLink>
+                </li>
+              )
+            )}
 
-          <div className="mt-2">
-            <BlueLink href="/privacy" ariaLabel="View privacy information">
-              Privacy policy
-            </BlueLink>
-          </div>
-          <div className="mt-2">
-            <BlueLink href="/terms" ariaLabel="View terms and conditions">
-              Terms of use
-            </BlueLink>
-          </div>
-
-          <div className="mt-2">
-            <BlueLink href="/help" ariaLabel="View help information">
-              Help
-            </BlueLink>
-          </div>
+            <li>
+              <BlueLink href="/help" ariaLabel={`View help`}>
+                Help
+              </BlueLink>
+            </li>
+          </ul>
         </section>
 
         {/* <section>

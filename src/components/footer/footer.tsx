@@ -15,11 +15,11 @@ export default function Footer({ className }: IClassProps) {
         <></>
 
         <>
-          <div className="grid grid-cols-1 gap-x-8 gap-y-8 border-t border-gray-200 pt-8 text-sm lg:pt-16 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-8 border-t border-gray-200 pt-8 text-sm lg:pt-16 xl:grid-cols-4 ">
             <div>{getCopyright()}</div>
-            <div className="col-span-3 grid grow grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="col-span-2 flex flex-col justify-between gap-4 md:flex-row">
               <div>
-                <h2 className="font-semibold">Learn more</h2>
+                <h2 className="font-semibold">Resources</h2>
                 <ul className="mt-2 flex flex-col gap-2">
                   {FOOTER_LINKS.map(
                     (link: { name: string; url: string }, index: number) => (
