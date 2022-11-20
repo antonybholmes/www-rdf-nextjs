@@ -55,7 +55,7 @@ function JournalFilter({
   }
 
   return (
-    <div className="rounded-2xl border border-gray-200 p-4 text-sm">
+    <div className="border-t border-gray-300 pt-4 text-sm">
       {/* <ToggleSwitch
         isSelected={showAll}
         onClick={onShowAll}

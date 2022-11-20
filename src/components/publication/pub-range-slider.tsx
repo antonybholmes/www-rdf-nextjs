@@ -31,7 +31,7 @@ const YearSelector = ({ x, y, r = 8, onMouseUp, onMouseDown }) => {
 
 export default function PubRangeSlider({
   data,
-  barWidth = 8,
+  barWidth = 6,
   barMargin = 1,
   height = 80,
   sliderHeight = 50,

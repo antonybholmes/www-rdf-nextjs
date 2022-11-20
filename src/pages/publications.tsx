@@ -32,6 +32,7 @@ import SortIcon from "../icons/sort"
 import SeventyLayout from "../layouts/seventy-layout"
 import cn from "../lib/class-names"
 import pubYearCount from "../lib/pub-year-count"
+import ThreeQuarterLayout from "../layouts/three-quarter-layout"
 
 const EMPTY_QUERY = ""
 
@@ -301,6 +302,8 @@ export default function Page() {
         })
       )
     }
+
+    setPage(0)
   }, [year1, year2])
 
   useEffect(() => {
@@ -310,20 +313,25 @@ export default function Page() {
   }, [yearFilteredPublications, sortOrder, descending])
 
   useEffect(() => {
-    setPage(0)
     setPages(
       Math.floor(
         (sortedPublications.length + recordsPerPage - 1) / recordsPerPage
       )
     )
 
-    setPagePublications(sortedPublications.slice(0, recordsPerPage))
+    updatePagePublications()
   }, [sortedPublications])
 
   useEffect(() => {
-    const s = page * recordsPerPage
-    setPagePublications(yearFilteredPublications.slice(s, s + recordsPerPage))
+    updatePagePublications()
   }, [page])
+
+  const updatePagePublications = () => {
+    const s = page * recordsPerPage
+
+    console.log(page)
+    setPagePublications(sortedPublications.slice(s, s + recordsPerPage))
+  }
 
   // useEffect(() => {
   //   setRecordsPerPage(recordsPerPage[recordsPerPageIndex])
@@ -489,7 +497,7 @@ export default function Page() {
             className="mx-auto mt-4 w-full md:w-80/100 lg:w-1/2"
           /> */}
 
-          <SeventyLayout className="mt-8 gap-x-8">
+          <ThreeQuarterLayout className="mt-8 gap-x-16">
             <div>
               <p className="text-sm text-gray-700">
                 {results(page, yearFilteredPublications)}
@@ -513,7 +521,7 @@ export default function Page() {
               )}
             </div>
 
-            <BaseCol className="gap-y-4 text-sm">
+            <BaseCol className="gap-y-8 text-sm">
               {/* <ToggleSwitch
                 isSelected={showAbstract}
                 onClick={onShowAbstractsChange}
@@ -529,7 +537,7 @@ export default function Page() {
                 setYear2={setYear2}
               />
 
-              <div className="rounded-2xl border border-gray-200 p-4">
+              <div className="border-t border-gray-300 pt-4">
                 <VCenterRow className="justify-between">
                   <h2 className="font-medium">Sort</h2>
                   <BaseRow className="overflow-hidden">
@@ -565,7 +573,7 @@ export default function Page() {
                 max={8}
               />
             </BaseCol>
-          </SeventyLayout>
+          </ThreeQuarterLayout>
         </>
         <></>
       </ArticleDiv>
