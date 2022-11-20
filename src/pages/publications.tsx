@@ -328,8 +328,6 @@ export default function Page() {
 
   const updatePagePublications = () => {
     const s = page * recordsPerPage
-
-    console.log(page)
     setPagePublications(sortedPublications.slice(s, s + recordsPerPage))
   }
 
