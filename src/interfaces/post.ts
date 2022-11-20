@@ -1,7 +1,7 @@
-import IBasePost from "./base-post"
+import IBaseMarkdown from "./base-markdown"
+import IPostFields from "./post-fields"
 
-interface IPost extends IBasePost {
-  html: string
+export default interface IPost extends IBaseMarkdown {
+  date: string
+  frontmatter: IPostFields
 }
-
-export default IPost

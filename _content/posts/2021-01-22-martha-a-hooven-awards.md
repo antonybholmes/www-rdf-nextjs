@@ -2,7 +2,8 @@
 title: "2020 Martha A. Hooven SSA Union Member/Clerical Technical Award"
 description: ""
 readTime: "1 min"
-section: "Awards"
+category: ["News"]
+section: ["Awards"]
 tags: ["Awards"]
 related: []
 hero: "post"

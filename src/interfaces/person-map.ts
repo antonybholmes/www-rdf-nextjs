@@ -1,5 +1,5 @@
-import IPostPerson from "./post-person"
+import IPerson from "./person"
 
 export default interface IPersonMap {
-  [key: string]: IPostPerson
+  [key: string]: IPerson
 }

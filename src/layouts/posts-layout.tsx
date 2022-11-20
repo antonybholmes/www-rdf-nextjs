@@ -4,12 +4,12 @@ import ToBlueLink from "../components/link/to-blue-link"
 import MarkdownBody from "../components/markdown-body"
 import { RECORDS_PER_PAGE } from "../constants"
 import IDataPageProps from "../interfaces/data-page-props"
-import INewsItem from "../interfaces/news-item"
+import IPost from "../interfaces/post"
 import SideLayout from "./side-layout"
 
 interface IProps extends IDataPageProps {
   title: string
-  posts: INewsItem[]
+  posts: IPost[]
 }
 
 export default function PostsLayout({ title, posts }: IProps) {

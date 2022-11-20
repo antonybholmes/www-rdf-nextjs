@@ -15,10 +15,11 @@ import QuoteStart from "../../icons/quote-start"
 import IPerson from "../../interfaces/person"
 import BaseLayout from "../../layouts/base-layout"
 import SeventyLayout from "../../layouts/seventy-layout"
-import { getAllPeople, getPersonBySlug } from "../../lib/api"
+import { getAllPeople, getPersonBySlug, PEOPLE_DIR } from "../../lib/api"
 import getContextName from "../../lib/context-name"
 import markdownToHtml from "../../lib/markdownToHtml"
 import sortPublications from "../../lib/sort-publications"
+import { join } from "path"
 
 const BASE_URL = "/api/publications/selected"
 
@@ -195,7 +196,7 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const person = getPersonBySlug(`${params.slug}.md`)
+  const person = getPersonBySlug(join(PEOPLE_DIR, `${params.slug}.md`))
 
   person.html = await markdownToHtml(person.content || "")
 

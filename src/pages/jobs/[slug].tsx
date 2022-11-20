@@ -1,34 +1,35 @@
 import { format, parseISO } from "date-fns"
-import INewsItem from "../../interfaces/news-item"
+import { join } from "path"
+import IPost from "../../interfaces/post"
 import MarkdownLayout from "../../layouts/markdown-layout"
-import { getAllJobs, getNewsItemBySlug, JOBS_DIR } from "../../lib/api"
+import { getAllJobs, getPostBySlug, POSTS_DIR } from "../../lib/api"
 import markdownToHtml from "../../lib/markdownToHtml"
 
 interface IProps {
-  newsItem: INewsItem
+  post: IPost
 }
 
-export default function Page({ newsItem }: IProps) {
+export default function Page({ post }: IProps) {
   return (
     <MarkdownLayout
-      title={newsItem.frontmatter.title}
-      supertitle={format(parseISO(newsItem.date), "LLLL d, yyyy")}
+      title={post.frontmatter.title}
+      supertitle={format(parseISO(post.date), "LLLL d, yyyy")}
       tab="Jobs"
-      html={newsItem.html}
+      html={post.html}
     />
   )
 }
 
-type Params = {
+interface IProps {
   params: {
     slug: string
   }
 }
 
-export async function getStaticProps({ params }: Params) {
-  const newsItem = getNewsItemBySlug(`${params.slug}.md`, JOBS_DIR)
+export async function getStaticProps({ params }: IProps) {
+  const post = getPostBySlug(join(POSTS_DIR, `${params.slug}.md`))
 
-  newsItem.html = await markdownToHtml(newsItem.content || "")
+  post.html = await markdownToHtml(post.content || "")
 
   // const file = join(
   //   PUBLICATIONS_DIR,
@@ -43,19 +44,19 @@ export async function getStaticProps({ params }: Params) {
 
   return {
     props: {
-      newsItem,
+      post,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const allNewsItems = getAllJobs()
+  const posts = getAllJobs()
 
   return {
-    paths: allNewsItems.map(newsItem => {
+    paths: posts.map(post => {
       return {
         params: {
-          slug: newsItem.slug,
+          slug: post.slug,
         },
       }
     }),

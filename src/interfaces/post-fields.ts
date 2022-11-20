@@ -1,13 +1,13 @@
 export default interface IPostFields {
-  index: number
   title: string
   description: string
+  readTime: string
+  category: string[]
+  section: string[]
+  tag: string[]
+  related: string[]
   hero: string
   heroCaption: string
-  readTime: string
-  authors: string[]
-  section: string
-  related: string[]
   draft: boolean
-  tags: string[]
+  authors: string[]
 }

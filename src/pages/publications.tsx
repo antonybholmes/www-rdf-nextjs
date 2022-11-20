@@ -545,10 +545,8 @@ export default function Page() {
                       className="color-ani flex h-6 w-6 flex-row items-center justify-center border-transparent text-gray-900 hover:border-gray-200"
                     >
                       <SortIcon
-                        className={cn("rotate-ani w-4", [
-                          descending,
-                          "rotate-180",
-                        ])}
+                        className={"rotate-ani w-4"}
+                        descending={descending}
                       />
                     </OutlinePillButton>
                   </BaseRow>

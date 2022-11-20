@@ -1,9 +1,9 @@
-import INewsItem from "../interfaces/news-item"
+import IPost from "../interfaces/post"
 import PostsLayout from "../layouts/posts-layout"
 import { getAllPosts } from "../lib/api"
 
 interface IProps {
-  allPosts: INewsItem[]
+  allPosts: IPost[]
 }
 
 export default function Page({ allPosts }: IProps) {

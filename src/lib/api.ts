@@ -1,10 +1,10 @@
 import fs from "fs"
-import { join } from "path"
+import { join, parse } from "path"
 import matter from "gray-matter"
 import IPerson from "../interfaces/person"
 import IFieldMap from "../interfaces/field-map"
 import getTitleMap from "./title-map"
-import INewsItem from "../interfaces/news-item"
+import IPost from "../interfaces/post"
 import IPage from "../interfaces/page"
 import IPersonMap from "../interfaces/person-map"
 
@@ -15,7 +15,26 @@ export const NEWS_DIR = join(CONTENT_DIR, "news")
 export const JOBS_DIR = join(CONTENT_DIR, "jobs")
 export const PUBLICATIONS_DIR = join(CONTENT_DIR, "publications")
 
-export const getFields = (path: string, items: IFieldMap) => {
+export function getAllFiles(dir: string, ret: string[] = []) {
+  const files = fs.readdirSync(dir)
+
+  files.forEach(file => {
+    const path = join(dir, file) //`${dirPath}/${file}`
+    if (fs.statSync(path).isDirectory()) {
+      getAllFiles(path, ret)
+    } else {
+      ret.push(path) //path.join(dirPath, "/", file))
+    }
+  })
+
+  return ret
+}
+
+export function getAllMDFiles(dir: string): string[] {
+  return getAllFiles(dir).filter(file => file.endsWith(".md"))
+}
+
+export function getFields(path: string, items: IFieldMap) {
   const fileContents = fs.readFileSync(path, "utf8")
   const { data, content, excerpt } = matter(fileContents, {
     excerpt: true,
@@ -32,13 +51,14 @@ export const getFields = (path: string, items: IFieldMap) => {
 }
 
 export function getPeopleSlugs() {
-  return fs.readdirSync(PEOPLE_DIR)
+  return getAllMDFiles(PEOPLE_DIR)
 }
 
-export function getPersonBySlug(slug: string): IPerson {
+export function getPersonBySlug(path: string): IPerson {
+  const p = parse(path)
   const items: IPerson = {
     index: 0,
-    slug: slug.replace(".md", ""),
+    slug: p.name,
     titleMap: undefined,
     html: "",
     content: "",
@@ -64,7 +84,7 @@ export function getPersonBySlug(slug: string): IPerson {
     },
   }
 
-  getFields(join(PEOPLE_DIR, slug), items)
+  getFields(path, items)
 
   items.titleMap = getTitleMap(items.frontmatter.titles)
 
@@ -85,17 +105,24 @@ export const getPeopleMap = (people: IPerson[] = null): IPersonMap => {
   return Object.fromEntries(people.map(x => [x.frontmatter.name, x]))
 }
 
-export function getPostSlugs() {
-  return fs.readdirSync(POSTS_DIR)
+export function getAllPostMDFiles() {
+  return getAllMDFiles(POSTS_DIR)
 }
 
-export function getPostBySlug(slug: string, dir: string): INewsItem {
-  const match = slug.match(/(\d{4})-(\d{2})-(\d{2})/)
+export function getAllPosts(): IPost[] {
+  const files = getAllPostMDFiles()
+  const posts = files.map(path => getPostBySlug(path))
+  return posts
+}
+
+export function getPostBySlug(path: string): IPost {
+  const p = parse(path)
+  const match = p.name.match(/(\d{4})-(\d{2})-(\d{2})/)
   const date = match ? match.slice(1, 4).join("-") : "2022-01-01"
 
-  const items: INewsItem = {
+  const items: IPost = {
     index: 0,
-    slug: slug.replace(".md", ""),
+    slug: p.name,
     html: "",
     content: "",
     excerpt: "",
@@ -104,8 +131,9 @@ export function getPostBySlug(slug: string, dir: string): INewsItem {
       title: "",
       description: "",
       readTime: "",
-      section: "",
-      tags: [],
+      category: [],
+      section: [],
+      tag: [],
       related: [],
       hero: "",
       heroCaption: "",
@@ -114,64 +142,24 @@ export function getPostBySlug(slug: string, dir: string): INewsItem {
     },
   }
 
-  getFields(join(dir, slug), items)
+  getFields(path, items)
 
   return items
 }
 
-export function getAllPosts(): INewsItem[] {
-  const slugs = getPostSlugs()
-  const posts = slugs.map(slug => getPostBySlug(slug, POSTS_DIR))
+export function getAllNewsItems(): IPost[] {
+  const slugs = getAllPostMDFiles()
+  const posts = slugs
+    .map(slug => getPostBySlug(slug))
+    .filter(post => post.frontmatter.category.includes("News"))
   return posts
 }
 
-export function getNewsItemSlugs() {
-  return fs.readdirSync(NEWS_DIR)
-}
-
-export function getNewsItemBySlug(slug: string, dir: string): INewsItem {
-  const match = slug.match(/(\d{4})-(\d{2})-(\d{2})/)
-  const date = match ? match.slice(1, 4).join("-") : "2022-01-01"
-
-  const items: INewsItem = {
-    index: 0,
-    slug: slug.replace(".md", ""),
-    html: "",
-    content: "",
-    excerpt: "",
-    date: date,
-    frontmatter: {
-      title: "",
-      description: "",
-      readTime: "",
-      section: "",
-      tags: [],
-      related: [],
-      hero: "",
-      heroCaption: "",
-      draft: false,
-      authors: [],
-    },
-  }
-
-  getFields(join(dir, slug), items)
-
-  return items
-}
-
-export function getAllNewsItems(): INewsItem[] {
-  const slugs = getNewsItemSlugs()
-  const posts = slugs.map(slug => getNewsItemBySlug(slug, NEWS_DIR))
-  return posts
-}
-
-export function getJobSlugs() {
-  return fs.readdirSync(JOBS_DIR)
-}
-
-export function getAllJobs(): INewsItem[] {
-  const slugs = getJobSlugs()
-  const posts = slugs.map(slug => getNewsItemBySlug(slug, JOBS_DIR))
+export function getAllJobs(): IPost[] {
+  const slugs = getAllPostMDFiles()
+  const posts = slugs
+    .map(slug => getPostBySlug(slug))
+    .filter(post => post.frontmatter.category.includes("Jobs"))
   return posts
 }
 
