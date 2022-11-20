@@ -1,7 +1,7 @@
 import IChildProps from "../interfaces/child-props"
 import cn from "../lib/class-names"
 
-export default function ArticleDiv({
+export default function ContentDiv({
   className,
   style,
   children,

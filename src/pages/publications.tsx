@@ -17,7 +17,7 @@ import BaseRow from "../components/base-row"
 
 import VCenterRow from "../components/v-center-row"
 
-import ArticleDiv from "../components/article-div"
+import ContentDiv from "../components/content-div"
 import HCenterRow from "../components/h-center-row"
 import Pagination from "../components/pagination"
 import AuthorFilter from "../components/publication/author-filter"
@@ -485,7 +485,7 @@ export default function Page() {
         />
       }
     >
-      <ArticleDiv>
+      <ContentDiv>
         <></>
         <>
           {/* <SearchBar
@@ -574,7 +574,7 @@ export default function Page() {
           </ThreeQuarterLayout>
         </>
         <></>
-      </ArticleDiv>
+      </ContentDiv>
     </BaseLayout>
   )
 }

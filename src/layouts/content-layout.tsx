@@ -1,4 +1,4 @@
-import ArticleDiv from "../components/article-div"
+import ContentDiv from "../components/content-div"
 import Breadcrumb from "../components/breadcrumb"
 import PageTitle from "../components/page-title"
 import ICrumbProps from "../interfaces/crumb-props"
@@ -33,7 +33,7 @@ export default function ContentLayout({
       className={className}
       footerClassName={footerClassName}
     >
-      <ArticleDiv className={cn("mb-8", headerClassName)}>
+      <ContentDiv className={cn("mb-8", headerClassName)}>
         <></>
         <>
           {crumbs && <Breadcrumb crumbs={crumbs} className="mt-8" />}
@@ -53,8 +53,8 @@ export default function ContentLayout({
           }
         </>
         <></>
-      </ArticleDiv>
-      <ArticleDiv>
+      </ContentDiv>
+      <ContentDiv>
         <></>
         <>
           {
@@ -63,7 +63,7 @@ export default function ContentLayout({
           }
         </>
         <></>
-      </ArticleDiv>
+      </ContentDiv>
     </BaseLayout>
   )
 }

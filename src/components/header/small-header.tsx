@@ -4,7 +4,7 @@ import MenuOpenButton from "./menu-button-open"
 import IHeaderProps from "../../interfaces/header-props"
 import IMenuProps from "../../interfaces/menu-props"
 import HCenterRow from "../h-center-row"
-import ArticleDiv from "../article-div"
+import ContentDiv from "../content-div"
 
 interface IProps extends IMenuProps, IHeaderProps {}
 
@@ -61,11 +61,11 @@ function SmallHeader({ title, tab, showMenu, onClick, children }: IProps) {
         <div></div>
       </div>
       {children && (
-        <ArticleDiv>
+        <ContentDiv>
           <></>
           <div className="mb-4">{children}</div>
           <></>
-        </ArticleDiv>
+        </ContentDiv>
       )}
     </nav>
   )

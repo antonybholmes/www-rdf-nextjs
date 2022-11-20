@@ -1,4 +1,4 @@
-import ArticleDiv from "../components/article-div"
+import ContentDiv from "../components/content-div"
 import BaseLayout from "../layouts/base-layout"
 
 //import axios from "axios"
@@ -60,7 +60,7 @@ export default function Page() {
         </VCenterCol>
       </div> */}
 
-      <ArticleDiv className="my-32 lg:my-64">
+      <ContentDiv className="my-32 lg:my-64">
         <></>
         <div className="grid grid-cols-1 gap-12 xl:grid-cols-5">
           <div className="col-span-3 overflow-hidden p-8 lg:rounded-3xl lg:shadow-2xl">
@@ -101,9 +101,9 @@ export default function Page() {
           </VCenterCol>
         </div>
         <></>
-      </ArticleDiv>
+      </ContentDiv>
 
-      <ArticleDiv className="bg-gradient-to-b from-apple-gray">
+      <ContentDiv className="bg-gradient-to-b from-apple-gray">
         <></>
         <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-2 ">
           <HCenterRow>
@@ -135,9 +135,9 @@ export default function Page() {
           </HCenterRow>
         </div>
         <></>
-      </ArticleDiv>
+      </ContentDiv>
 
-      {/* <ArticleDiv className="mt-32">
+      {/* <ContentDiv className="mt-32">
         <></>
 
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
@@ -163,7 +163,7 @@ export default function Page() {
           </div>
         </div>
         <></>
-      </ArticleDiv> */}
+      </ContentDiv> */}
 
       <IndexPublications />
     </BaseLayout>

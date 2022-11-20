@@ -3,7 +3,7 @@ import IClassProps from "../../interfaces/class-props"
 import cn from "../../lib/class-names"
 import getCopyright from "../../lib/copyright"
 import { FOOTER_LINKS, FOOTER_LINKS_2, INFO_LINKS } from "../../menus"
-import ArticleDiv from "../article-div"
+import ContentDiv from "../content-div"
 import HCenterRow from "../h-center-row"
 import BaseLink from "../link/base-link"
 import BlackLink from "../link/black-link"
@@ -11,7 +11,7 @@ import BlackLink from "../link/black-link"
 export default function Footer({ className }: IClassProps) {
   return (
     <footer className={cn("mt-32", className)}>
-      <ArticleDiv>
+      <ContentDiv>
         <></>
 
         <>
@@ -86,7 +86,7 @@ export default function Footer({ className }: IClassProps) {
           </HCenterRow>
         </>
         <></>
-      </ArticleDiv>
+      </ContentDiv>
     </footer>
   )
 }

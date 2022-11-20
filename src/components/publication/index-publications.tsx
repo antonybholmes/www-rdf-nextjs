@@ -1,4 +1,4 @@
-import ArticleDiv from "../article-div"
+import ContentDiv from "../content-div"
 
 //import { gsap } from "gsap"
 import { useEffect, useState } from "react"
@@ -44,7 +44,7 @@ export default function IndexPublications() {
   }, [])
 
   return (
-    <ArticleDiv className="my-64">
+    <ContentDiv className="my-64">
       <></>
       <div>
         <h1 className="text-center text-5xl ">Recent Publications</h1>
@@ -52,6 +52,6 @@ export default function IndexPublications() {
         <Publications publications={publications} showCount={true} />
       </div>
       <></>
-    </ArticleDiv>
+    </ContentDiv>
   )
 }

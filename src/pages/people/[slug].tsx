@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import ArticleDiv from "../../components/article-div"
+import ContentDiv from "../../components/content-div"
 import BaseCol from "../../components/base-col"
 import BaseRow from "../../components/base-row"
 import BlueButtonLink from "../../components/link/blue-button-link"
@@ -99,7 +99,7 @@ export default function Page({ person }: IProps) {
 
   return (
     <BaseLayout title={person.frontmatter.name} tab="People" showTitle={false}>
-      <ArticleDiv className="mt-16">
+      <ContentDiv className="mt-16">
         <></>
         <VCenterCol className="gap-y-16">
           <SeventyLayout className="gap-y-8 2xl:gap-x-32" isRight={true}>
@@ -183,7 +183,7 @@ export default function Page({ person }: IProps) {
           </SeventyLayout>
         </VCenterCol>
         <></>
-      </ArticleDiv>
+      </ContentDiv>
     </BaseLayout>
   )
 }

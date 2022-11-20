@@ -1,4 +1,4 @@
-import ArticleDiv from "../article-div"
+import ContentDiv from "../content-div"
 import BaseLink from "../link/base-link"
 import HeaderLinks from "./header-links"
 
@@ -15,7 +15,7 @@ interface IProps extends IChildrenProps {
 export default function LargeHeader({ title, tab, children }: IProps) {
   return (
     <nav className="hidden lg:block">
-      <ArticleDiv>
+      <ContentDiv>
         <></>
 
         <div className="flex h-16 flex-row  items-center gap-x-8 xl:gap-x-16">
@@ -40,7 +40,7 @@ export default function LargeHeader({ title, tab, children }: IProps) {
         {/* {children && <span className="h-6 border-l-2 border-gray-900" />} */}
 
         <></>
-      </ArticleDiv>
+      </ContentDiv>
     </nav>
   )
 }
