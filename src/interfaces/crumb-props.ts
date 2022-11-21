@@ -1,3 +1,3 @@
 export default interface ICrumbProps {
-  crumbs?: [string, string][]
+  crumbs?: [string, string][] | string
 }

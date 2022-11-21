@@ -1,4 +1,5 @@
 import MarkdownBody from "../components/markdown-body"
+import PageTitle from "../components/page-title"
 import ILayoutProps from "../interfaces/layout-props"
 import SideLayout from "./side-layout"
 
@@ -14,10 +15,16 @@ export default function MarkdownLayout({
   tab,
 }: IProps) {
   return (
-    <SideLayout title={title} supertitle={supertitle} tab={tab} crumbs={[]}>
-      <div>
+    <SideLayout title={title} supertitle={supertitle} tab={tab} crumbs={tab}>
+      <>
+        <PageTitle
+          title={title}
+          subtitle={supertitle}
+          supertitle={supertitle}
+          className="mb-8"
+        />
         <MarkdownBody html={html} className="text-justify" />
-      </div>
+      </>
       <></>
     </SideLayout>
   )

@@ -28,7 +28,7 @@ function _cn(args: CSSClass | CSSClass[], classes: string[]) {
           break
       }
     } else {
-      args.forEach(arg => _cn(<CSSClass[]>arg, classes))
+      args.forEach(arg => _cn(arg, classes))
     }
   } else {
     classes.push(args)
@@ -62,6 +62,8 @@ export default function cn(...args: CSSClass[]): string {
       .filter(c => {
         // keep track of tokens already seen
         const ret = !used.has(c)
+        // side effect, keep track of what we've
+        // already seen
         used.add(c)
         return ret
       })

@@ -1,5 +1,5 @@
 import ContentDiv from "../components/content-div"
-import Breadcrumb from "../components/breadcrumb"
+import Breadcrumb from "../components/breadcrumb2"
 import PageTitle from "../components/page-title"
 import ICrumbProps from "../interfaces/crumb-props"
 import ILayoutProps from "../interfaces/layout-props"
@@ -23,6 +23,7 @@ export default function ContentLayout({
   footerClassName,
   crumbs,
   className,
+  headerChildren,
   children,
 }: IProps) {
   return (
@@ -32,20 +33,21 @@ export default function ContentLayout({
       isIndexed={isIndexed}
       className={className}
       footerClassName={footerClassName}
+      headerChildren={headerChildren}
     >
-      <ContentDiv className={cn("mb-8", headerClassName)}>
+      <ContentDiv className={headerClassName}>
         <></>
         <>
-          {crumbs && <Breadcrumb crumbs={crumbs} className="mt-8" />}
+          {crumbs && <Breadcrumb crumbs={crumbs} className="mt-8 mb-16" />}
 
-          {showTitle && title !== "" && (
+          {/* {showTitle && title !== "" && (
             <PageTitle
               title={title}
               subtitle={description}
               supertitle={supertitle}
               className="mt-8"
             />
-          )}
+          )} */}
 
           {
             // @ts-ignore

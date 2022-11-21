@@ -19,8 +19,8 @@ export default function PostsLayout({ title, posts }: IProps) {
   )
 
   return (
-    <SideLayout title={title}>
-      <ul className="mt-8 flex flex-col gap-y-8">
+    <SideLayout title={title} crumbs={[]}>
+      <ul className="flex flex-col gap-y-8">
         {posts.map((post: any, index: number) => {
           const url = `/${title.toLowerCase()}/${post.slug}`
           return (

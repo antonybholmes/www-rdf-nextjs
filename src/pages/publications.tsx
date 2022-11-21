@@ -33,6 +33,7 @@ import SeventyLayout from "../layouts/seventy-layout"
 import cn from "../lib/class-names"
 import pubYearCount from "../lib/pub-year-count"
 import ThreeQuarterLayout from "../layouts/three-quarter-layout"
+import ContentLayout from "../layouts/content-layout"
 
 const EMPTY_QUERY = ""
 
@@ -473,9 +474,8 @@ export default function Page() {
   // )
 
   return (
-    <BaseLayout
+    <ContentLayout
       title="Publications"
-      showTitle={false}
       headerChildren={
         <SearchBar
           onSearch={onSearch}
@@ -485,97 +485,85 @@ export default function Page() {
         />
       }
     >
-      <ContentDiv>
-        <></>
-        <>
-          {/* <SearchBar
-            onSearch={onSearch}
-            placeholder="Search publications..."
-            text={query}
-            className="mx-auto mt-4 w-full md:w-80/100 lg:w-1/2"
-          /> */}
+      <></>
+      <ThreeQuarterLayout className="mt-8 gap-x-16">
+        <div>
+          <p className="text-sm text-gray-700">
+            {results(page, yearFilteredPublications)}
+          </p>
 
-          <ThreeQuarterLayout className="mt-8 gap-x-16">
-            <div>
-              <p className="text-sm text-gray-700">
-                {results(page, yearFilteredPublications)}
-              </p>
+          <Publications
+            publications={pagePublications}
+            showAbstract={showAbstract}
+            showCount={true}
+            showMoreButton={false}
+          />
 
-              <Publications
-                publications={pagePublications}
-                showAbstract={showAbstract}
-                showCount={true}
-                showMoreButton={false}
+          {yearFilteredPublications.length > recordsPerPage && (
+            <HCenterRow className="mt-16">
+              <Pagination
+                page={page + 1}
+                pages={pages}
+                onClick={onPageChanged}
               />
+            </HCenterRow>
+          )}
+        </div>
 
-              {yearFilteredPublications.length > recordsPerPage && (
-                <HCenterRow className="mt-16">
-                  <Pagination
-                    page={page + 1}
-                    pages={pages}
-                    onClick={onPageChanged}
-                  />
-                </HCenterRow>
-              )}
-            </div>
-
-            <BaseCol className="gap-y-8 text-sm">
-              {/* <ToggleSwitch
+        <BaseCol className="gap-y-8 text-sm">
+          {/* <ToggleSwitch
                 isSelected={showAbstract}
                 onClick={onShowAbstractsChange}
               >
                 Show Abstracts
               </ToggleSwitch> */}
 
-              {yearData.length > 0 && (
-                <PubRangeSlider
-                  data={yearData}
-                  r1={year1}
-                  setYear1={setYear1}
-                  r2={year2}
-                  setYear2={setYear2}
-                />
-              )}
+          {yearData.length > 0 && (
+            <PubRangeSlider
+              data={yearData}
+              r1={year1}
+              setYear1={setYear1}
+              r2={year2}
+              setYear2={setYear2}
+            />
+          )}
 
-              <div className="border-t border-gray-300 pt-4">
-                <VCenterRow className="justify-between">
-                  <h2 className="font-medium">Sort</h2>
-                  <BaseRow className="overflow-hidden">
-                    <OutlinePillButton
-                      ariaLabel="Sort ascending"
-                      onClick={() => setDescending(!descending)}
-                      className="color-ani flex h-6 w-6 flex-row items-center justify-center border-transparent text-gray-900 hover:border-gray-200"
-                    >
-                      <SortIcon
-                        className={"rotate-ani w-4"}
-                        descending={descending}
-                      />
-                    </OutlinePillButton>
-                  </BaseRow>
-                </VCenterRow>
+          <div className="border-t border-gray-300 pt-4">
+            <VCenterRow className="justify-between">
+              <h2 className="font-medium">Sort</h2>
+              <BaseRow className="overflow-hidden">
+                <OutlinePillButton
+                  ariaLabel="Sort ascending"
+                  onClick={() => setDescending(!descending)}
+                  className="color-ani flex h-6 w-6 flex-row items-center justify-center border-transparent text-gray-900 hover:border-gray-200"
+                >
+                  <SortIcon
+                    className={"rotate-ani w-4"}
+                    descending={descending}
+                  />
+                </OutlinePillButton>
+              </BaseRow>
+            </VCenterRow>
 
-                <SortOrder onChange={onSortChange} selected={sortOrder} />
-              </div>
+            <SortOrder onChange={onSortChange} selected={sortOrder} />
+          </div>
 
-              <JournalFilter
-                journals={journals}
-                selected={selectedJournals}
-                onClick={onJournalClick}
-                max={8}
-              />
+          <JournalFilter
+            journals={journals}
+            selected={selectedJournals}
+            onClick={onJournalClick}
+            max={8}
+          />
 
-              <AuthorFilter
-                authors={authors.slice(0, 20)}
-                selected={selectedAuthors}
-                onClick={onAuthorClick}
-                max={8}
-              />
-            </BaseCol>
-          </ThreeQuarterLayout>
-        </>
-        <></>
-      </ContentDiv>
-    </BaseLayout>
+          <AuthorFilter
+            authors={authors.slice(0, 20)}
+            selected={selectedAuthors}
+            onClick={onAuthorClick}
+            max={8}
+          />
+        </BaseCol>
+      </ThreeQuarterLayout>
+    </ContentLayout>
   )
 }
 

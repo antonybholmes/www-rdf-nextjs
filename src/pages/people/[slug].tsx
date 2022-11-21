@@ -1,6 +1,6 @@
 import axios from "axios"
+import { join } from "path"
 import { useEffect, useState } from "react"
-import ContentDiv from "../../components/content-div"
 import BaseCol from "../../components/base-col"
 import BaseRow from "../../components/base-row"
 import BlueButtonLink from "../../components/link/blue-button-link"
@@ -13,13 +13,12 @@ import PubMedLink from "../../components/publication/pubmed-link"
 import VCenterCol from "../../components/v-center-col"
 import QuoteStart from "../../icons/quote-start"
 import IPerson from "../../interfaces/person"
-import BaseLayout from "../../layouts/base-layout"
+import ContentLayout from "../../layouts/content-layout"
 import SeventyLayout from "../../layouts/seventy-layout"
 import { getAllPeople, getPersonBySlug, PEOPLE_DIR } from "../../lib/api"
 import getContextName from "../../lib/context-name"
 import markdownToHtml from "../../lib/markdownToHtml"
 import sortPublications from "../../lib/sort-publications"
-import { join } from "path"
 
 const BASE_URL = "/api/publications/selected"
 
@@ -99,73 +98,17 @@ export default function Page({ person }: IProps) {
   //}, [])
 
   return (
-    <BaseLayout title={person.frontmatter.name} tab="People" showTitle={false}>
-      <ContentDiv className="mt-16">
-        <></>
-        <VCenterCol className="gap-y-16">
-          <SeventyLayout className="gap-y-8 2xl:gap-x-32" isRight={true}>
-            <PersonHeaderHoz person={person} />
-            <></>
-          </SeventyLayout>
-          <SeventyLayout className="gap-y-8 2xl:gap-x-32" isRight={true}>
-            <VCenterCol className="gap-y-8 md:gap-y-12">
-              <VCenterCol className="gap-y-4 rounded-2xl border border-gray-200 p-6 2xl:hidden">
-                <h1 className="text-lg font-semibold">Get In Touch</h1>
-
-                <ContactInfo person={person} />
-
-                {person.frontmatter.profile && (
-                  <BaseRow>
-                    <BlueButtonLink
-                      href={person.frontmatter.profile}
-                      className="mt-2 text-sm font-medium"
-                      ariaLabel="View Columbia Profile"
-                    >
-                      Columbia Profile
-                    </BlueButtonLink>
-                  </BaseRow>
-                )}
-              </VCenterCol>
-
-              <PersonHeaderImage person={person} />
-
-              {person.html && (
-                <BaseCol className="gap-y-4 rounded-2xl bg-apple-gray p-4 md:gap-y-8 md:p-8">
-                  {/* <h1 className="text-3xl font-medium">Research</h1> */}
-
-                  <QuoteStart className="w-8 fill-gray-900/20 lg:w-12" />
-                  <MarkdownBody html={person.html} />
-                  <BaseRow className="w-full justify-end">
-                    <QuoteStart className="w-8 rotate-180 fill-gray-900/20 lg:w-12" />
-                  </BaseRow>
-                </BaseCol>
-              )}
-
-              {!person.frontmatter.groups.lab.includes("Admin") && (
-                <div>
-                  <h1 className="text-3xl">Selected Publications</h1>
-                  {publications.length > 0 && (
-                    <Publications
-                      publications={publications.slice(0, 15)}
-                      showAbstract={false}
-                      showMoreButton={false}
-                      showCount={true}
-                    />
-                  )}
-
-                  <BaseCol className="mt-8 items-center gap-y-2">
-                    <span>
-                      {publications.length > 0
-                        ? "See more on"
-                        : "See all publications on"}
-                    </span>
-                    <PubMedLink person={person} />
-                  </BaseCol>
-                </div>
-              )}
-            </VCenterCol>
-            <VCenterCol className="gap-y-4">
-              <h1 className="text-lg font-semibold">Get In Touch</h1>
+    <ContentLayout title={person.frontmatter.name} tab="People" crumbs={[]}>
+      <></>
+      <VCenterCol className="gap-y-16">
+        <SeventyLayout className="gap-y-8 2xl:gap-x-32" isRight={true}>
+          <PersonHeaderHoz person={person} />
+          <></>
+        </SeventyLayout>
+        <SeventyLayout className="gap-y-8 2xl:gap-x-32" isRight={true}>
+          <VCenterCol className="gap-y-8 md:gap-y-12">
+            <BaseCol className="gap-y-4 rounded-2xl border border-gray-200 p-6 2xl:hidden">
+              {/* <h1 className="text-xl">Get In Touch</h1> */}
 
               <ContactInfo person={person} />
 
@@ -180,12 +123,65 @@ export default function Page({ person }: IProps) {
                   </BlueButtonLink>
                 </BaseRow>
               )}
-            </VCenterCol>
-          </SeventyLayout>
-        </VCenterCol>
-        <></>
-      </ContentDiv>
-    </BaseLayout>
+            </BaseCol>
+
+            <PersonHeaderImage person={person} />
+
+            {person.html && (
+              <BaseCol className="gap-y-4 rounded-2xl bg-apple-gray p-4 md:gap-y-8 md:p-8">
+                {/* <h1 className="text-3xl font-medium">Research</h1> */}
+
+                <QuoteStart className="w-8 fill-gray-900/20 lg:w-12" />
+                <MarkdownBody html={person.html} />
+                <BaseRow className="w-full justify-end">
+                  <QuoteStart className="w-8 rotate-180 fill-gray-900/20 lg:w-12" />
+                </BaseRow>
+              </BaseCol>
+            )}
+
+            {!person.frontmatter.groups.lab.includes("Admin") && (
+              <div>
+                <h1 className="text-3xl">Selected Publications</h1>
+                {publications.length > 0 && (
+                  <Publications
+                    publications={publications.slice(0, 15)}
+                    showAbstract={false}
+                    showMoreButton={false}
+                    showCount={true}
+                  />
+                )}
+
+                <BaseCol className="mt-8 items-center gap-y-2">
+                  <span>
+                    {publications.length > 0
+                      ? "See more on"
+                      : "See all publications on"}
+                  </span>
+                  <PubMedLink person={person} />
+                </BaseCol>
+              </div>
+            )}
+          </VCenterCol>
+          <VCenterCol className="gap-y-4">
+            <h1 className="text-2xl">Get In Touch</h1>
+
+            <ContactInfo person={person} />
+
+            {person.frontmatter.profile && (
+              <BaseRow>
+                <BlueButtonLink
+                  href={person.frontmatter.profile}
+                  className="mt-2 text-sm font-medium"
+                  ariaLabel="View Columbia Profile"
+                >
+                  Columbia Profile
+                </BlueButtonLink>
+              </BaseRow>
+            )}
+          </VCenterCol>
+        </SeventyLayout>
+      </VCenterCol>
+    </ContentLayout>
   )
 }
 

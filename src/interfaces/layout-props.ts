@@ -1,3 +1,4 @@
+import { ReactNode } from "react"
 import IChildrenProps from "./children-props"
 
 export default interface ILayoutProps extends IChildrenProps {
@@ -8,4 +9,5 @@ export default interface ILayoutProps extends IChildrenProps {
   tab?: string
   isIndexed?: boolean
   headerMode?: string
+  headerChildren?: ReactNode
 }

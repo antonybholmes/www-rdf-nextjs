@@ -100,12 +100,12 @@ export default function PersonCard({
         <BlueLink
           href={`/people/${person.frontmatter.personId}`}
           ariaLabel={`View profile for ${person.frontmatter.name}`}
-          className="mt-4 block font-medium"
+          className="mt-4 block font-semibold"
         >
           {person.frontmatter.name}
         </BlueLink>
       ) : (
-        <div className="mt-4 font-medium">{person.frontmatter.name}</div>
+        <div className="mt-4 font-semibold">{person.frontmatter.name}</div>
       )}
 
       <div className="text-sm">{titles[0]}</div>

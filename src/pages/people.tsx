@@ -15,7 +15,7 @@ export default function Page({ allPeople }: IProps) {
   const groupMap = getGroupMap(allPeople)
 
   return (
-    <ContentLayout title="People" showTitle={false}>
+    <ContentLayout title="People" crumbs={[]}>
       <></>
       <ThreeQuarterLayout isRight={false} className="main-content">
         <div className="flex w-full flex-col gap-y-8">

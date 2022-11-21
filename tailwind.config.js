@@ -9,14 +9,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: [
-        "Plus Jakarta Sans",
-        "Noto Sans",
-        "Figtree",
-        "Inter",
-        "Helvetica",
-        "Arial",
-      ],
+      sans: ["Plus Jakarta Sans", "Helvetica", "Arial"],
     },
     extend: {
       width: {

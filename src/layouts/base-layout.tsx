@@ -7,7 +7,6 @@ import ILayoutProps from "../interfaces/layout-props"
 import cn from "../lib/class-names"
 
 interface IProps extends ILayoutProps {
-  headerChildren?: ReactNode
   footerClassName?: string
 }
 
