@@ -527,13 +527,15 @@ export default function Page() {
                 Show Abstracts
               </ToggleSwitch> */}
 
-              <PubRangeSlider
-                data={yearData}
-                r1={year1}
-                setYear1={setYear1}
-                r2={year2}
-                setYear2={setYear2}
-              />
+              {yearData.length > 0 && (
+                <PubRangeSlider
+                  data={yearData}
+                  r1={year1}
+                  setYear1={setYear1}
+                  r2={year2}
+                  setYear2={setYear2}
+                />
+              )}
 
               <div className="border-t border-gray-300 pt-4">
                 <VCenterRow className="justify-between">

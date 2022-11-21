@@ -110,7 +110,7 @@ export default function Page({ person }: IProps) {
           <SeventyLayout className="gap-y-8 2xl:gap-x-32" isRight={true}>
             <VCenterCol className="gap-y-8 md:gap-y-12">
               <VCenterCol className="gap-y-4 rounded-2xl border border-gray-200 p-6 2xl:hidden">
-                <h1 className="text-lg font-medium">Get In Touch</h1>
+                <h1 className="text-lg font-semibold">Get In Touch</h1>
 
                 <ContactInfo person={person} />
 
@@ -164,8 +164,8 @@ export default function Page({ person }: IProps) {
                 </div>
               )}
             </VCenterCol>
-            <VCenterCol className="gap-y-6">
-              <h1 className="text-lg font-medium">Get In Touch</h1>
+            <VCenterCol className="gap-y-4">
+              <h1 className="text-lg font-semibold">Get In Touch</h1>
 
               <ContactInfo person={person} />
 

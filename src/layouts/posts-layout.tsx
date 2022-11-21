@@ -1,4 +1,5 @@
 import { format, parseISO } from "date-fns"
+import BlackLink from "../components/link/black-link"
 import BlueIndexLink from "../components/link/blue-index-link"
 import ToBlueLink from "../components/link/to-blue-link"
 import MarkdownBody from "../components/markdown-body"
@@ -23,23 +24,20 @@ export default function PostsLayout({ title, posts }: IProps) {
         {posts.map((post: any, index: number) => {
           const url = `/${title.toLowerCase()}/${post.slug}`
           return (
-            <li
-              key={index}
-              className="color-ani block rounded-2xl border border-gray-200 p-6 lg:p-8"
-            >
+            <li key={index} className="flex flex-col gap-y-2">
               <div className="text-sm">
                 {format(parseISO(post.date), "LLLL d, yyyy")}
               </div>
-              <ToBlueLink href={url} ariaLabel="View article">
-                <h2 className="mt-2 text-2xl lg:text-3xl">
+              <BlackLink href={url} ariaLabel="View article">
+                <h2 className="text-2xl font-semibold lg:text-3xl">
                   {post.frontmatter.title}
                 </h2>
-              </ToBlueLink>
-              <MarkdownBody html={post.excerpt} className="mt-2" />
+              </BlackLink>
+              <MarkdownBody html={post.excerpt} />
               <BlueIndexLink
                 href={url}
                 ariaLabel="View article"
-                className="mt-2"
+                className="font-semibold"
               >
                 Read more
               </BlueIndexLink>

@@ -111,7 +111,7 @@ export default function PersonHeaderHoz({
       >
         <VCenterCol className="h-full items-center gap-y-8 lg:items-start">
           <div>
-            <h1 className="text-center text-3xl lg:text-left lg:text-4xl">
+            <h1 className="text-center text-3xl font-semibold lg:text-left lg:text-4xl">
               {getPersonName(person)}
             </h1>
 
