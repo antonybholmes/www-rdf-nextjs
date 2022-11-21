@@ -60,10 +60,6 @@ export default function Breadcrumb({
     return <></>
   }
 
-  if (typeof crumbs === "string") {
-    crumbs = [[crumbs, crumbs.toLowerCase()]]
-  }
-
   if (crumbs.length === 0) {
     const router = useRouter()
     crumbs = createCrumbs(router.asPath)

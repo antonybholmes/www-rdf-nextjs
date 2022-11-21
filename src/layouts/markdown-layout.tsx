@@ -14,8 +14,17 @@ export default function MarkdownLayout({
   html,
   tab,
 }: IProps) {
+  if (!tab) {
+    tab = title
+  }
+
   return (
-    <SideLayout title={title} supertitle={supertitle} tab={tab} crumbs={tab}>
+    <SideLayout
+      title={title}
+      supertitle={supertitle}
+      tab={tab}
+      crumbs={[[tab, `/${tab.toLowerCase()}`]]}
+    >
       <>
         <PageTitle
           title={title}
