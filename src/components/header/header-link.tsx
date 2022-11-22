@@ -1,29 +1,51 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import ILink from "../../interfaces/link"
 import cn from "../../lib/class-names"
 import BaseLink from "../link/base-link"
 import VCenterCol from "../v-center-col"
-
+import { gsap } from "gsap"
 const BAR_WIDTH = "2px"
 
-export const LINK_CLS =
-  "flex flex-row items-center justify-center relative whitespace-nowrap color-ani px-4 py-2 rounded-lg border-2 border-transparent"
+export const LINK_CLS = cn(
+  "flex",
+  "flex-row",
+  "items-center",
+  "justify-center",
+  "relative",
+  "whitespace-nowrap",
+  "color-ani",
+  "px-4 py-2",
+  "rounded-lg",
+  "border-2",
+  "border-transparent"
+)
 
 type IProps = {
   link: ILink
   selected: boolean
   onClick?: any
-  headerMode?: string
 }
 
-export default function HeaderLink({
-  link,
-  selected,
-  onClick,
-  headerMode = "light",
-}: IProps) {
+export default function HeaderLink({ link, selected, onClick }: IProps) {
   const [hover, setHover] = useState(false)
   const [down, setDown] = useState(false)
+
+  const lineRef = useRef(null)
+
+  useEffect(() => {
+    // if (typeof window !== "undefined") {
+    //   gsap.registerPlugin(ScrollTrigger)
+    // }
+
+    if (selected) {
+      gsap.from("#line", {
+        left: 0,
+        width: "100%",
+        delay: 0.2,
+        duration: 0.2,
+      })
+    }
+  }, [selected])
 
   return (
     <VCenterCol className="relative h-16 justify-center">
@@ -50,8 +72,13 @@ export default function HeaderLink({
 
       {selected && (
         <div
-          className={cn("absolute bottom-0 w-full bg-blue-600")}
-          style={{ height: BAR_WIDTH }}
+          id="line"
+          className={cn("absolute bottom-0 bg-blue-600")}
+          style={{
+            left: "1rem",
+            width: "calc(100% - 2rem)",
+            height: BAR_WIDTH,
+          }}
         />
       )}
     </VCenterCol>

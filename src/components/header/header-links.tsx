@@ -28,21 +28,17 @@ function HeaderLinks({
   return (
     <ul
       className={cn(
-        "flex flex-row flex-nowrap items-center gap-x-1 text-sm font-semibold",
+        "flex flex-row flex-nowrap items-center text-sm font-semibold",
         className
       )}
+      style={{ marginBottom: "-1px" }}
     >
       {HEADER_LINKS.map((link: ILink, index: number) => {
         const selected = link.name.toLowerCase() === tab
 
         return (
           <li key={index} className="inline">
-            <HeaderLink
-              link={link}
-              selected={selected}
-              onClick={onClick}
-              headerMode={headerMode}
-            />
+            <HeaderLink link={link} selected={selected} onClick={onClick} />
           </li>
         )
       })}
