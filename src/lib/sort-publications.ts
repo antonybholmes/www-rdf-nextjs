@@ -1,3 +1,5 @@
+import { first } from "lodash"
+
 export function sortByDate(
   publications: any[],
   descending: boolean = true
@@ -153,46 +155,53 @@ function sortByTitle(publications: any[], descending: boolean = true): any[] {
   return ret
 }
 
-function sortByFirstAuthor(
+function sortByAuthor(
   publications: any[],
+  first: boolean = true,
   descending: boolean = true
 ): any[] {
   const pubMap: any = {}
 
   publications.map((publication: any) => {
-    if (!(publication.authorList[0] in pubMap)) {
-      pubMap[publication.authorList[0]] = {}
+    const authorIndex = first ? 0 : publication.authorList.length - 1
+
+    if (!(publication.authorList[authorIndex] in pubMap)) {
+      pubMap[publication.authorList[authorIndex]] = {}
     }
 
-    if (!(publication.year in pubMap[publication.authorList[0]])) {
-      pubMap[publication.authorList[0]][publication.year] = {}
+    if (!(publication.year in pubMap[publication.authorList[authorIndex]])) {
+      pubMap[publication.authorList[authorIndex]][publication.year] = {}
     }
 
     if (
       !(
-        publication.month in pubMap[publication.authorList[0]][publication.year]
+        publication.month in
+        pubMap[publication.authorList[authorIndex]][publication.year]
       )
     ) {
-      pubMap[publication.authorList[0]][publication.year][publication.month] =
-        {}
+      pubMap[publication.authorList[authorIndex]][publication.year][
+        publication.month
+      ] = {}
     }
 
     if (
       !(
         publication.title in
-        pubMap[publication.authorList[0]][publication.year][publication.month]
+        pubMap[publication.authorList[authorIndex]][publication.year][
+          publication.month
+        ]
       )
     ) {
-      pubMap[publication.authorList[0]][publication.year][publication.month][
-        publication.title
-      ] = publication
+      pubMap[publication.authorList[authorIndex]][publication.year][
+        publication.month
+      ][publication.title] = publication
     }
   })
 
   const ret: any[] = []
 
   if (descending) {
-    for (let author of Object.keys(pubMap).sort()) {
+    for (let author of Object.keys(pubMap).sort().reverse()) {
       for (let year of Object.keys(pubMap[author]).sort().reverse()) {
         for (let month of Object.keys(pubMap[author][year]).sort().reverse()) {
           for (let title of Object.keys(pubMap[author][year][month])) {
@@ -202,7 +211,7 @@ function sortByFirstAuthor(
       }
     }
   } else {
-    for (let author of Object.keys(pubMap).sort().reverse()) {
+    for (let author of Object.keys(pubMap).sort()) {
       for (let year of Object.keys(pubMap[author]).sort().reverse()) {
         for (let month of Object.keys(pubMap[author][year]).sort().reverse()) {
           for (let title of Object.keys(pubMap[author][year][month])) {
@@ -229,8 +238,12 @@ function sortPublications(
       // sort by title
       return sortByTitle(publications, descending)
     case "first author":
-      // sort by date
-      return sortByFirstAuthor(publications, descending)
+      // sort by first author alphabetically using whole name string.
+      // Since name is surname initials, sorting is based on surname primarily.
+      return sortByAuthor(publications, true, descending)
+    case "last author":
+      // sort by last author
+      return sortByAuthor(publications, false, descending)
     default:
       // sort by date
       return sortByDate(publications, descending)

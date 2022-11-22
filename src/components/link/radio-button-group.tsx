@@ -27,13 +27,15 @@ function RadioButtonGroup({
     <ul className={className}>
       {items.map((item: string, index: number) => {
         return (
-          <RadioButton
-            key={index}
-            text={item}
-            index={index}
-            selected={item === selected}
-            onChange={handleChange}
-          />
+          <li key={index}>
+            <RadioButton
+              key={index}
+              text={item}
+              index={index}
+              selected={item === selected}
+              onChange={handleChange}
+            />
+          </li>
         )
       })}
     </ul>

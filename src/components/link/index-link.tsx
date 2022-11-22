@@ -4,6 +4,7 @@ import IUnderlineLinkProps from "../../interfaces/underline-link-props"
 import cn from "../../lib/class-names"
 import BaseLink from "./base-link"
 import { gsap } from "gsap"
+import IndexArrow from "../../icons/index-arrow"
 
 export default function IndexLink({
   href,
@@ -45,13 +46,7 @@ export default function IndexLink({
     >
       {children}
 
-      <div ref={iconEl}>
-        <ChevronRightIcon
-          className={cn(
-            "h-full w-3 stroke-3 transition-transform duration-200"
-          )}
-        />
-      </div>
+      <IndexArrow selected={hover} className="w-4 stroke-2" />
     </BaseLink>
   )
 }

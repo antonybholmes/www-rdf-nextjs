@@ -1,9 +1,7 @@
 import { useState } from "react"
+import ChevronRightIcon from "../../icons/chevron-right"
 import cn from "../../lib/class-names"
-import { BASE_BUTTON_CLASSES } from "../link/button-link"
 import CheckBox from "../link/check-box"
-import ChevronDownIcon from "../../icons/chevron-down"
-import Button from "../link/button"
 import VCenterRow from "../v-center-row"
 
 interface JournalProps {
@@ -63,8 +61,14 @@ function JournalFilter({
       >
         Journals
       </ToggleSwitch> */}
-      <button onClick={onShowAll} className="w-full text-left">
+      <button
+        onClick={onShowAll}
+        className="color-ani flex w-full flex-row items-center justify-between stroke-gray-500 hover:stroke-gray-900"
+      >
         <h2 className="font-medium">Journals</h2>
+        <ChevronRightIcon
+          className={cn("rotate-ani w-3 stroke-2", [showAll, "rotate-90"])}
+        />
       </button>
       <ul className="my-2 flex flex-col gap-y-1">
         {journals.map((journal: any, index: number) => {
@@ -78,7 +82,7 @@ function JournalFilter({
           )
         })}
       </ul>
-      <Button
+      {/* <Button
         onClick={onShowAll}
         ariaLabel="Show more items"
         className={cn(BASE_BUTTON_CLASSES, "rotate-ani w-full", [
@@ -87,7 +91,7 @@ function JournalFilter({
         ])}
       >
         <ChevronDownIcon className="w-3 stroke-gray-500 stroke-2" />
-      </Button>
+      </Button> */}
     </div>
   )
 }

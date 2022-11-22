@@ -41,6 +41,7 @@ export default function HeaderLink({ link, selected, onClick }: IProps) {
       gsap.from("#line", {
         left: 0,
         width: "100%",
+        opacity: 0,
         delay: 0.2,
         duration: 0.2,
       })

@@ -8,6 +8,8 @@ export default function RoundedButtonLink({
   href,
   ariaLabel,
   underline,
+  onMouseEnter,
+  onMouseLeave,
   className,
   children,
 }: ILinkProps) {
@@ -16,6 +18,8 @@ export default function RoundedButtonLink({
       href={href}
       ariaLabel={ariaLabel}
       underline={underline}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       className={cn(ROUNDED_BUTTON_CLASSES, className)}
     >
       {children}

@@ -6,8 +6,8 @@ const ITEMS = [
   "Publication Date",
   "Title",
   "Journal",
-  "First author",
-  "Last author",
+  "First Author",
+  "Last Author",
 ]
 
 interface SortProps extends IClassProps {

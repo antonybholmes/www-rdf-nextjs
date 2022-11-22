@@ -11,7 +11,8 @@ export default function ButtonLink({
   href,
   ariaLabel,
   underline,
-  onHover,
+  onMouseEnter,
+  onMouseLeave,
   className,
   children,
 }: ILinkProps) {
@@ -20,7 +21,8 @@ export default function ButtonLink({
       href={href}
       underline={underline}
       ariaLabel={ariaLabel}
-      onHover={onHover}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       className={cn(BUTTON_CLASSES, className)}
     >
       {children}

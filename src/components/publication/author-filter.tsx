@@ -1,9 +1,7 @@
 import { useState } from "react"
 import cn from "../../lib/class-names"
-import { BASE_BUTTON_CLASSES } from "../link/button-link"
 
-import ChevronDownIcon from "../../icons/chevron-down"
-import Button from "../link/button"
+import ChevronRightIcon from "../../icons/chevron-right"
 import { Journal } from "./journal-filter"
 
 interface AuthorFilterProps {
@@ -38,8 +36,14 @@ function AuthorFilter({
       >
         Authors
       </ToggleSwitch> */}
-      <button onClick={onShowAll} className="w-full text-left">
+      <button
+        onClick={onShowAll}
+        className="color-ani flex w-full flex-row items-center justify-between stroke-gray-500 hover:stroke-gray-900"
+      >
         <h2 className="font-medium">Authors</h2>
+        <ChevronRightIcon
+          className={cn("rotate-ani w-3 stroke-2", [showAll, "rotate-90"])}
+        />
       </button>
       <ul className="my-2 flex flex-col gap-y-1">
         {authors.map((journal: any, index: number) => {
@@ -53,7 +57,7 @@ function AuthorFilter({
           )
         })}
       </ul>
-      <Button
+      {/* <Button
         onClick={onShowAll}
         ariaLabel="Show more items"
         className={cn(BASE_BUTTON_CLASSES, "rotate-ani w-full", [
@@ -62,7 +66,7 @@ function AuthorFilter({
         ])}
       >
         <ChevronDownIcon className="w-3 stroke-gray-500 stroke-2" />
-      </Button>
+      </Button> */}
     </div>
   )
 }

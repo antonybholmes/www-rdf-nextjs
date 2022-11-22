@@ -111,18 +111,6 @@ export default function Page({ person }: IProps) {
               {/* <h1 className="text-xl">Get In Touch</h1> */}
 
               <ContactInfo person={person} />
-
-              {person.frontmatter.profile && (
-                <BaseRow>
-                  <BlueButtonLink
-                    href={person.frontmatter.profile}
-                    className="mt-2 text-sm font-medium"
-                    ariaLabel="View Columbia Profile"
-                  >
-                    Columbia Profile
-                  </BlueButtonLink>
-                </BaseRow>
-              )}
             </BaseCol>
 
             <PersonHeaderImage person={person} />
@@ -166,18 +154,6 @@ export default function Page({ person }: IProps) {
             <h1 className="text-2xl">Get In Touch</h1>
 
             <ContactInfo person={person} />
-
-            {person.frontmatter.profile && (
-              <BaseRow>
-                <BlueButtonLink
-                  href={person.frontmatter.profile}
-                  className="mt-2 text-sm font-medium"
-                  ariaLabel="View Columbia Profile"
-                >
-                  Columbia Profile
-                </BlueButtonLink>
-              </BaseRow>
-            )}
           </VCenterCol>
         </SeventyLayout>
       </VCenterCol>
