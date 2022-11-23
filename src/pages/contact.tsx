@@ -2,16 +2,8 @@ import SideLayout from "../layouts/side-layout"
 
 export default function Page() {
   return (
-    <SideLayout title="Contact Us">
+    <SideLayout title="Contact Us" crumbs={[]} sideClassName="gap-16">
       <>
-        <div className="mt-8">
-          <p className="font-medium">Institute for Cancer Generics</p>
-          <p>Herbert Irving Cancer Center</p>
-          <p>Columbia University</p>
-          <p>1130 St Nicholas Ave</p>
-          <p>New York, NY 10032, USA</p>
-        </div>
-
         {/* <iframe
           className="mt-8 h-96 w-full lg:h-160"
           frameBorder="0"
@@ -20,7 +12,7 @@ export default function Page() {
         ></iframe> */}
 
         <iframe
-          className="mt-8 mb-32 h-96 w-full lg:h-160"
+          className="mb-16 h-96 w-full overflow-hidden rounded-2xl shadow-2xl lg:h-160"
           frameBorder="0"
           scrolling="no"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1509.231629192999!2d-73.94063554169362!3d40.83975179482953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f69cf9446ff1%3A0x523dcfdc4ca47584!2s1130%20St%20Nicholas%20Ave%2C%20New%20York%2C%20NY%2010032!5e0!3m2!1sen!2sus!4v1662856169364!5m2!1sen!2sus"
@@ -39,7 +31,13 @@ export default function Page() {
           </BlueButtonLink>
         </BaseRow> */}
       </>
-      <></>
+      <div className="w-full overflow-hidden rounded-2xl bg-apple-gray p-8 text-sm">
+        <p className="font-medium">Institute for Cancer Generics</p>
+        <p>Herbert Irving Cancer Center</p>
+        <p>Columbia University</p>
+        <p>1130 St Nicholas Ave</p>
+        <p>New York, NY 10032, USA</p>
+      </div>
     </SideLayout>
   )
 }

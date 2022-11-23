@@ -39,7 +39,6 @@ export default function PersonCard({
     setHover(false)
   }
 
-  let fluid = null //imageMap["generic"]
   let b = "border-gray-100"
 
   const titleMap = getTitleMap(person.frontmatter.titles)

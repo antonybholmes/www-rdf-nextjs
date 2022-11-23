@@ -19,7 +19,7 @@ export default function Page() {
           <h1 className="py-8 text-7xl font-semibold">Welcome.</h1>
         </div>
 
-        <div className="overflow-hidden lg:-ml-32 lg:mr-32 lg:-mb-32 lg:mt-32 lg:rounded-3xl lg:shadow-2xl">
+        <div className="overflow-hidden lg:-ml-32 lg:mr-32 lg:-mb-32 lg:mt-32 lg:rounded-2xl lg:shadow-2xl">
           <BaseImage
             src="/assets/images/lab.webp"
             alt="Hands performing bench work."
@@ -66,7 +66,7 @@ export default function Page() {
       <ContentDiv className="my-32 lg:my-64">
         <></>
         <div className="grid grid-cols-1 gap-12 xl:grid-cols-5">
-          <div className="col-span-3 overflow-hidden p-8 lg:rounded-3xl lg:shadow-2xl">
+          <div className="col-span-3 overflow-hidden p-8 lg:rounded-2xl lg:shadow-2xl">
             <BaseLink
               href="https://pubmed.ncbi.nlm.nih.gov/25712152/"
               ariaLabel="View original article"
@@ -118,7 +118,7 @@ export default function Page() {
                 src="/assets/images/umap_bbbb.webp"
                 size={[512, 512]}
                 alt="UMAP"
-                className="rounded-3xl bg-white p-4 shadow-2xl lg:p-8"
+                className="rounded-2xl bg-white p-4 shadow-2xl lg:p-8"
               />
             </BaseLink>
           </HCenterRow>
@@ -132,7 +132,7 @@ export default function Page() {
                 src="/assets/images/umap_pseudotime.webp"
                 size={[512, 512]}
                 alt="UMAP"
-                className="rounded-3xl bg-white p-4 shadow-2xl lg:p-8"
+                className="rounded-2xl bg-white p-4 shadow-2xl lg:p-8"
               />
             </BaseLink>
           </HCenterRow>

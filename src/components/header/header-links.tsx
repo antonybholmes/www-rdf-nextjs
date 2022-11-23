@@ -8,17 +8,10 @@ import HeaderLink from "./header-link"
 interface IProps extends IClassProps {
   title: string
   tab?: string
-  headerMode?: string
   onClick?: MouseEventHandler
 }
 
-function HeaderLinks({
-  title,
-  tab = "",
-  headerMode = "light",
-  onClick,
-  className,
-}: IProps) {
+function HeaderLinks({ title, tab = "", onClick, className }: IProps) {
   if (!tab) {
     tab = title
   }

@@ -1,25 +1,22 @@
 import axios from "axios"
-import { join } from "path"
 import { useEffect, useState } from "react"
-import BaseCol from "../base-col"
-import BaseRow from "../base-row"
-import SecondaryButton from "../link/secondary-button"
-import MarkdownBody from "../markdown-body"
-import ContactInfo from "./contact-info"
-import PersonHeaderHoz from "./person-header-hoz"
-import PersonHeaderImage from "./person-header-image"
-import Publications from "../publication/publications"
-import PubMedLink from "../publication/pubmed-link"
-import VCenterCol from "../v-center-col"
-import VCenterRow from "../v-center-row"
 import QuoteStart from "../../icons/quote-start"
 import IPerson from "../../interfaces/person"
 import ContentLayout from "../../layouts/content-layout"
 import SeventyLayout from "../../layouts/seventy-layout"
-import { getAllPeople, getPersonBySlug, PEOPLE_DIR } from "../../lib/api"
 import getContextName from "../../lib/context-name"
-import markdownToHtml from "../../lib/markdownToHtml"
 import sortPublications from "../../lib/sort-publications"
+import BaseCol from "../base-col"
+import BaseRow from "../base-row"
+import SecondaryButton from "../link/secondary-button"
+import MarkdownBody from "../markdown-body"
+import Publications from "../publication/publications"
+import PubMedLink from "../publication/pubmed-link"
+import VCenterCol from "../v-center-col"
+import VCenterRow from "../v-center-row"
+import ContactInfo from "./contact-info"
+import PersonHeaderHoz from "./person-header-hoz"
+import PersonHeaderImage from "./person-header-image"
 
 const BASE_URL = "/api/publications/selected"
 
@@ -100,7 +97,7 @@ export default function PersonPage({ person }: IProps) {
   //}, [])
 
   return (
-    <ContentLayout title={person.frontmatter.name} tab="People" crumbs={[]}>
+    <ContentLayout title={person.frontmatter.name} crumbs={[]}>
       <></>
       <VCenterCol className="gap-y-16">
         <SeventyLayout className="gap-y-8 2xl:gap-x-24" isRight={true}>

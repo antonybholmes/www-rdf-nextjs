@@ -14,6 +14,7 @@ interface PublicationListProps extends IClassProps {
   publications: any[]
   showAbstract?: boolean
   showCount?: boolean
+  page?: number
   pageBreak?: number
 }
 
@@ -24,6 +25,7 @@ function BasePublicationList({
   publications,
   showAbstract = false,
   showCount = false,
+  page = 0,
   pageBreak = -1,
   className,
 }: PublicationListProps) {
@@ -31,12 +33,14 @@ function BasePublicationList({
     pageBreak = publications.length
   }
 
+  const indexOffset = page * pageBreak
+
   // divide into pages
   const pages = range(
     0,
     Math.floor((publications.length - 1) / pageBreak) + 1
   ).map(p => {
-    const s = p * pageBreak
+    const startIndex = p * pageBreak
 
     const elems = []
 
@@ -47,26 +51,31 @@ function BasePublicationList({
           className="my-4 flex flex-row items-center gap-x-4 text-xs text-gray-500"
         >
           <hr className="grow text-gray-100" />
-          <span>Page {p + 1}</span>
+          <span>Page {page + p + 1}</span>
           <hr className="grow text-gray-100" />
         </li>
       )
     }
 
     elems.push(
-      ...publications.slice(s, s + pageBreak).map((publication, index) => {
-        const i = s + index
-        return (
-          <li key={i}>
-            <BasePublication
-              index={i}
-              showCount={showCount}
-              publication={publication}
-              showAbstract={showAbstract}
-            />
-          </li>
-        )
-      })
+      ...publications
+        .slice(startIndex, startIndex + pageBreak)
+        .map((publication, index) => {
+          // Represents the current offset (page) + the offset of the current page from the
+          // start page plus the index of the publication within the page
+          const pubIndex = indexOffset + startIndex + index
+
+          return (
+            <li key={pubIndex}>
+              <BasePublication
+                index={pubIndex}
+                showCount={showCount}
+                publication={publication}
+                showAbstract={showAbstract}
+              />
+            </li>
+          )
+        })
     )
 
     return elems

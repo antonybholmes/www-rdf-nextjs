@@ -31,6 +31,8 @@ import SortIcon from "../icons/sort"
 import ContentLayout from "../layouts/content-layout"
 import ThreeQuarterLayout from "../layouts/three-quarter-layout"
 import pubYearCount from "../lib/pub-year-count"
+import BluePillButton from "../components/link/blue-pill-button"
+import { TEXT_SHOW_MORE } from "../constants"
 
 const EMPTY_QUERY = ""
 
@@ -427,7 +429,7 @@ export default function Page() {
   }
 
   function showMoreOnClick() {
-    setPageEnd(pageEnd + 1)
+    setPageEnd(Math.min(pageEnd + 1, pages - 1))
   }
 
   function onJournalClick(journal: string, selected: boolean) {
@@ -512,11 +514,24 @@ export default function Page() {
             publications={pagePublications}
             showAbstract={showAbstract}
             showCount={true}
-            showMoreButton={true}
             className="mt-8"
-            showMoreOnClick={showMoreOnClick}
+            page={pageStart}
             pageBreak={recordsPerPage}
           />
+
+          {pageStart < pages - 1 && (
+            <HCenterRow className="mt-8">
+              <div>
+                <BluePillButton
+                  ariaLabel={TEXT_SHOW_MORE}
+                  onClick={showMoreOnClick}
+                  className="px-4 py-2"
+                >
+                  {TEXT_SHOW_MORE}
+                </BluePillButton>
+              </div>
+            </HCenterRow>
+          )}
 
           {yearFilteredPublications.length > recordsPerPage && (
             <HCenterRow className="mt-16">

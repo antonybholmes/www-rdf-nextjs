@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export default function Page({ allPeople }: IProps) {
-  return <PeoplePage allPeople={allPeople} />
+  return <PeoplePage title="Faculty" allPeople={allPeople} />
 }
 
 export const getStaticProps = async () => {

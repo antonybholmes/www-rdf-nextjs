@@ -3,9 +3,6 @@ import BaseLink from "../link/base-link"
 import HeaderLinks from "./header-links"
 
 import IChildrenProps from "../../interfaces/children-props"
-import HCenterCol from "../h-center-col"
-import VCenterRow from "../v-center-row"
-import HCenterRow from "../h-center-row"
 
 interface IProps extends IChildrenProps {
   title: string

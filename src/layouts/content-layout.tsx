@@ -1,5 +1,5 @@
 import ContentDiv from "../components/content-div"
-import Breadcrumb from "../components/breadcrumb2"
+import Breadcrumb from "../components/breadcrumb"
 import PageTitle from "../components/page-title"
 import ICrumbProps from "../interfaces/crumb-props"
 import ILayoutProps from "../interfaces/layout-props"

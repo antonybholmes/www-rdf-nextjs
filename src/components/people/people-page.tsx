@@ -5,17 +5,16 @@ import getGroupMap from "../../lib/group-map"
 import TableOfContents from "../toc/toc"
 import PeopleGrid from "./people-grid"
 
-const BASE_URL = "/api/publications/selected"
-
 interface IProps {
+  title: string
   allPeople: IPerson[]
 }
 
-export default function Page({ allPeople }: IProps) {
+export default function Page({ title, allPeople }: IProps) {
   const groupMap = getGroupMap(allPeople)
 
   return (
-    <ContentLayout title="People" crumbs={[]}>
+    <ContentLayout title={title} crumbs={[]}>
       <></>
       <ThreeQuarterLayout isRight={false} className="main-content">
         <div className="flex w-full flex-col gap-y-16">

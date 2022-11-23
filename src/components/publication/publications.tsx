@@ -21,6 +21,7 @@ interface IProps extends IChildrenProps {
   showCount?: boolean
   showMoreButton?: boolean
   showMoreOnClick?: any
+  page?: number
   pageBreak?: number
 }
 
@@ -30,6 +31,7 @@ function Publications({
   showCount,
   showMoreButton,
   showMoreOnClick,
+  page = 0,
   pageBreak = -1,
   className,
 }: IProps) {
@@ -51,6 +53,7 @@ function Publications({
           publications={publications}
           showAbstract={showAbstract}
           showCount={showCount}
+          page={page}
           pageBreak={pageBreak}
           className={className}
         />

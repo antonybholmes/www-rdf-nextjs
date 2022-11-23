@@ -1,5 +1,4 @@
 import { useRouter } from "next/router"
-import ChevronRightIcon from "../icons/chevron-right"
 import HomeIcon from "../icons/home"
 import IClassProps from "../interfaces/class-props"
 import ICrumb from "../interfaces/crumb"
@@ -7,7 +6,8 @@ import ICrumbProps from "../interfaces/crumb-props"
 import cn from "../lib/class-names"
 import { toUpperCase } from "../lib/text"
 import BlackLink from "./link/black-link"
-import ToBlueLink from "./link/to-blue-link"
+import BlueLink from "./link/blue-link"
+import ToBlackLink from "./link/to-black-link"
 import WhiteLink from "./link/white-link"
 
 const EXCLUDE = ["Tag", "Section", "Page"]
@@ -25,13 +25,9 @@ function getCrumbLink(crumb: ICrumb, mode = "light") {
     )
   } else {
     return (
-      <ToBlueLink
-        href={crumb[1]}
-        underline={true}
-        ariaLabel={`Visit ${crumb[0]}`}
-      >
+      <ToBlackLink href={crumb[1]} ariaLabel={`Visit ${crumb[0]}`}>
         {crumb[0]}
-      </ToBlueLink>
+      </ToBlackLink>
     )
   }
 }
@@ -76,35 +72,29 @@ export default function Breadcrumb({
 
   ret.push(
     <li key="home">
-      <BlackLink href="/" ariaLabel="Home">
-        <HomeIcon className="w-3" />
-      </BlackLink>
+      <BlueLink href="/" ariaLabel="Home">
+        <HomeIcon className="w-4" />
+      </BlueLink>
       {/* <ToBlueLink href="/" ariaLabel="Home">
         Home
       </ToBlueLink> */}
     </li>
   )
 
+  // ret.push(<li key={`crumb-${ret.length}`}>{getCrumbLink(["Home", "/"], mode)}</li>)
+
   for (let i = 0; i < crumbs.length; ++i) {
     const crumb = crumbs[i]
 
-    ret.push(
-      <li key={`divider-${i}`}>
-        <ChevronRightIcon className="w-3" />
-      </li>
-    )
+    ret.push(<li key={`divider-${i}`}>/</li>)
 
-    ret.push(
-      <li key={`crumb-${ret.length}`}>
-        {i < crumbs.length - 1 ? getCrumbLink(crumb, mode) : crumb[0]}
-      </li>
-    )
+    ret.push(<li key={`crumb-${ret.length}`}>{getCrumbLink(crumb, mode)}</li>)
   }
 
   return (
     <ul
       className={cn(
-        "flex flex-row flex-nowrap items-center gap-x-2 stroke-gray-500  text-xs text-gray-500",
+        "flex flex-row flex-nowrap items-center gap-x-2 stroke-gray-500 text-base font-medium text-gray-400/80 lg:gap-x-3",
         [mode === "dark", "text-gray-50"],
         className
       )}

@@ -2,11 +2,11 @@ import { ITitleLayoutProps } from "../interfaces/title-layout-props"
 import ContentLayout from "./content-layout"
 
 import SeventyLayout from "./seventy-layout"
-import PageTitle from "../components/page-title"
 
 interface IProps extends ITitleLayoutProps {
   sideClassName?: string
   footerClassName?: string
+  autoHide?: boolean
 }
 
 export default function SideLayout({
@@ -20,6 +20,7 @@ export default function SideLayout({
   sideClassName,
   className,
   footerClassName,
+  autoHide = true,
   children,
 }: IProps) {
   return (
@@ -34,7 +35,7 @@ export default function SideLayout({
       footerClassName={footerClassName}
     >
       <></>
-      <SeventyLayout className={sideClassName}>
+      <SeventyLayout className={sideClassName} autoHide={autoHide}>
         <>
           {/* {showTitle && (
             <PageTitle
