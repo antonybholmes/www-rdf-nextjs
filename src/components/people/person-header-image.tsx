@@ -48,7 +48,7 @@ export default function PersonHeaderImage({ person }: IProps) {
           <BaseImage
             src={headerImage}
             alt="Header Image"
-            className="h-full w-full"
+            className={cn("transform-ani h-full w-full", [hover, "scale-102"])}
             style={{ objectFit: "cover" }}
             size={[1024, 512]}
             loading="eager"

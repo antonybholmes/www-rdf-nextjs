@@ -39,6 +39,6 @@ export const GROUPS = [
   "Web Site",
 ]
 
-export const TEXT_SHOW_MORE = "Show More"
+export const TEXT_SHOW_MORE = "Show more"
 
 export const ICG_URL = env.ICG_URL

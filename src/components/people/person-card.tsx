@@ -79,13 +79,28 @@ export default function PersonCard({
     )
   }
 
+  let url: string
+
+  if (
+    person.frontmatter.groups["lab"].includes("Director") ||
+    person.frontmatter.groups["lab"].includes("Faculty")
+  ) {
+    url = `/people/faculty/${person.frontmatter.personId}`
+  } else if (person.frontmatter.groups["lab"].includes("Research")) {
+    url = `/people/research-staff/${person.frontmatter.personId}`
+  } else if (person.frontmatter.groups["lab"].includes("Admin")) {
+    url = `/people/administrative-staff/${person.frontmatter.personId}`
+  } else {
+    url = `/people/${person.frontmatter.personId}`
+  }
+
   return (
     <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {photoMode.includes("generic") && (
         <HCenterRow>
           {showUrl ? (
             <BaseLink
-              href={`/people/${person.frontmatter.personId}`}
+              href={url}
               ariaLabel={`View profile for ${person.frontmatter.name}`}
             >
               {img}
@@ -98,7 +113,7 @@ export default function PersonCard({
 
       {showUrl ? (
         <BlueLink
-          href={`/people/${person.frontmatter.personId}`}
+          href={url}
           ariaLabel={`View profile for ${person.frontmatter.name}`}
           className="mt-4 block font-semibold"
         >

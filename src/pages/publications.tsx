@@ -17,24 +17,20 @@ import BaseRow from "../components/base-row"
 
 import VCenterRow from "../components/v-center-row"
 
-import ContentDiv from "../components/content-div"
 import HCenterRow from "../components/h-center-row"
-import Pagination from "../components/pagination"
+import Pagination from "../components/pagination2"
 import AuthorFilter from "../components/publication/author-filter"
-import BaseLayout from "../layouts/base-layout"
 import getAuthorPublications from "../lib/author-publications"
 
 import axios from "axios"
 import BaseCol from "../components/base-col"
 import OutlinePillButton from "../components/link/outline-pill-button"
+import SecondaryButton from "../components/link/secondary-button"
 import PubRangeSlider from "../components/publication/pub-range-slider"
 import SortIcon from "../icons/sort"
-import SeventyLayout from "../layouts/seventy-layout"
-import cn from "../lib/class-names"
-import pubYearCount from "../lib/pub-year-count"
-import ThreeQuarterLayout from "../layouts/three-quarter-layout"
 import ContentLayout from "../layouts/content-layout"
-import SecondaryButton from "../components/link/secondary-button"
+import ThreeQuarterLayout from "../layouts/three-quarter-layout"
+import pubYearCount from "../lib/pub-year-count"
 
 const EMPTY_QUERY = ""
 

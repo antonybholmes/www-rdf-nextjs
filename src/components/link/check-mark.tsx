@@ -1,6 +1,6 @@
 import cn from "../../lib/class-names"
 
-type CheckMarkProps = {
+interface ICheckMarkProps {
   selected: boolean
   hover: boolean
   className?: string
@@ -10,7 +10,7 @@ export default function CheckMark({
   selected,
   hover,
   className,
-}: CheckMarkProps) {
+}: ICheckMarkProps) {
   return (
     // <VCenterRow
     //   className={cn(

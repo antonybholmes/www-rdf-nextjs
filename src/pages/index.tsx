@@ -19,14 +19,16 @@ export default function Page() {
           <h1 className="py-8 text-7xl font-semibold">Welcome.</h1>
         </div>
 
-        <BaseImage
-          src="/assets/images/lab.webp"
-          alt="Hands performing bench work."
-          className="h-full w-full lg:-ml-16 lg:mt-16 lg:rounded-3xl lg:shadow-2xl"
-          size={[1024, 512]}
-          loading={"eager"}
-          style={{ objectFit: "cover" }}
-        />
+        <div className="overflow-hidden lg:-ml-32 lg:mr-32 lg:-mb-32 lg:mt-32 lg:rounded-3xl lg:shadow-2xl">
+          <BaseImage
+            src="/assets/images/lab.webp"
+            alt="Hands performing bench work."
+            className="transform-ani h-full w-full hover:scale-102"
+            size={[1024, 512]}
+            loading={"eager"}
+            style={{ objectFit: "cover" }}
+          />
+        </div>
       </div>
 
       <h1 className="text-center text-7xl font-semibold lg:hidden">Welcome.</h1>
@@ -96,7 +98,7 @@ export default function Page() {
                 className="mt-8"
                 ariaLabel="Meet the team"
               >
-                Meet The Team
+                Meet the team
               </BlueButtonArrowLink>
             </BaseRow>
           </VCenterCol>

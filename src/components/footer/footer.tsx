@@ -19,7 +19,7 @@ export default function Footer({ className }: IClassProps) {
           <div className="col-span-2 flex flex-col justify-between gap-4 md:flex-row">
             <div>
               <h2 className="font-semibold">Resources</h2>
-              <ul className="mt-2 flex flex-col gap-2">
+              <ul className="mt-4 flex flex-col gap-2">
                 {FOOTER_LINKS.map(
                   (link: { name: string; url: string }, index: number) => (
                     <li key={index}>
@@ -36,7 +36,7 @@ export default function Footer({ className }: IClassProps) {
             </div>
             <div>
               <h2 className="font-semibold">About</h2>
-              <ul className="mt-2 flex flex-col gap-2">
+              <ul className="mt-4 flex flex-col gap-2">
                 {INFO_LINKS.map(
                   (link: { name: string; url: string }, index: number) => (
                     <li key={index}>
@@ -54,7 +54,7 @@ export default function Footer({ className }: IClassProps) {
 
             <div>
               <h2 className="font-semibold">Departments</h2>
-              <ul className="mt-2 flex flex-col gap-2">
+              <ul className="mt-4 flex flex-col gap-2">
                 {FOOTER_LINKS_2.map(
                   (link: { name: string; url: string }, index: number) => (
                     <li key={index}>

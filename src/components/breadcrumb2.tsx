@@ -1,9 +1,12 @@
 import { useRouter } from "next/router"
+import HomeIcon from "../icons/home"
 import IClassProps from "../interfaces/class-props"
 import ICrumb from "../interfaces/crumb"
 import ICrumbProps from "../interfaces/crumb-props"
 import cn from "../lib/class-names"
 import { toUpperCase } from "../lib/text"
+import BlackLink from "./link/black-link"
+import BlueLink from "./link/blue-link"
 import ToBlackLink from "./link/to-black-link"
 import WhiteLink from "./link/white-link"
 
@@ -67,23 +70,23 @@ export default function Breadcrumb({
 
   const ret: any[] = []
 
-  // ret.push(
-  //   <li key="home">
-  //     <BlackLink href="/" ariaLabel="Home">
-  //       <HomeIcon className="w-3" />
-  //     </BlackLink>
-  //     {/* <ToBlueLink href="/" ariaLabel="Home">
-  //       Home
-  //     </ToBlueLink> */}
-  //   </li>
-  // )
+  ret.push(
+    <li key="home">
+      <BlueLink href="/" ariaLabel="Home">
+        <HomeIcon className="w-4" />
+      </BlueLink>
+      {/* <ToBlueLink href="/" ariaLabel="Home">
+        Home
+      </ToBlueLink> */}
+    </li>
+  )
+
+  // ret.push(<li key={`crumb-${ret.length}`}>{getCrumbLink(["Home", "/"], mode)}</li>)
 
   for (let i = 0; i < crumbs.length; ++i) {
     const crumb = crumbs[i]
 
-    if (i > 0) {
-      ret.push(<li key={`divider-${i}`}>/</li>)
-    }
+    ret.push(<li key={`divider-${i}`}>/</li>)
 
     ret.push(<li key={`crumb-${ret.length}`}>{getCrumbLink(crumb, mode)}</li>)
   }

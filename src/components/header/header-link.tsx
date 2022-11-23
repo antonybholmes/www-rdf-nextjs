@@ -4,7 +4,7 @@ import ILink from "../../interfaces/link"
 import cn from "../../lib/class-names"
 import BaseLink from "../link/base-link"
 import VCenterCol from "../v-center-col"
-const BAR_WIDTH = "2px"
+const BAR_WIDTH = "3px"
 
 export const LINK_CLS = cn(
   "flex",
@@ -33,10 +33,6 @@ export default function HeaderLink({ link, selected, onClick }: IProps) {
   const lineRef = useRef(null)
 
   useEffect(() => {
-    // if (typeof window !== "undefined") {
-    //   gsap.registerPlugin(ScrollTrigger)
-    // }
-
     if (selected) {
       gsap.from("#line", {
         left: 0,

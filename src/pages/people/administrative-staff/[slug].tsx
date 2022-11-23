@@ -1,10 +1,8 @@
 import { join } from "path"
-import PersonPage from "../../components/people/person-page"
-import IPerson from "../../interfaces/person"
-import { getAllPeople, getPersonBySlug, PEOPLE_DIR } from "../../lib/api"
-import markdownToHtml from "../../lib/markdownToHtml"
-
-const BASE_URL = "/api/publications/selected"
+import PersonPage from "../../../components/people/person-page"
+import IPerson from "../../../interfaces/person"
+import { getAllPeople, getPersonBySlug, PEOPLE_DIR } from "../../../lib/api"
+import markdownToHtml from "../../../lib/markdownToHtml"
 
 interface IProps {
   person: IPerson
@@ -44,7 +42,9 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const people = getAllPeople()
+  const people = getAllPeople().filter(person =>
+    person.frontmatter.groups["lab"].includes("Administrative Staff")
+  )
 
   return {
     paths: people.map(person => {

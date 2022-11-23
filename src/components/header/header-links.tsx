@@ -31,7 +31,6 @@ function HeaderLinks({
         "flex flex-row flex-nowrap items-center text-sm font-semibold",
         className
       )}
-      style={{ marginBottom: "-1px" }}
     >
       {HEADER_LINKS.map((link: ILink, index: number) => {
         const selected = link.name.toLowerCase() === tab

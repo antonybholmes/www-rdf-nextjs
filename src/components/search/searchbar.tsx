@@ -137,7 +137,7 @@ export default function SearchBar({
   return (
     <VCenterRow
       className={cn(
-        `m-0 gap-x-2 overflow-hidden rounded-xl bg-gray-100 p-2`,
+        `shadow-ani m-0 gap-x-2 overflow-hidden rounded-lg bg-gray-100 p-2 hover:shadow`,
         className
       )}
       onMouseEnter={onMouseEnter}

@@ -4,7 +4,7 @@ import { FOOTER_LINKS, INFO_LINKS } from "../menus"
 
 export default function Page() {
   return (
-    <ContentLayout title="Site Map" crumbs={[]}>
+    <ContentLayout title="Site Map" crumbs={[["Site Map", "/sitemap"]]}>
       <></>
       <div className="grid grid-cols-2 lg:grid-cols-4">
         <section>

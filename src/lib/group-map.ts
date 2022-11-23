@@ -6,13 +6,16 @@ export function getGroupMap(people: IPerson[], context = "lab"): IGroupMap {
   const gm: IGroupMap = {}
 
   people.forEach(person => {
-    const group = person.frontmatter.groups[context]
+    const groups = person.frontmatter.groups[context]
 
-    if (!(group in gm)) {
-      gm[group] = []
-    }
+    groups.split(",").forEach(group => {
+      group = group.trim()
+      if (!(group in gm)) {
+        gm[group] = []
+      }
 
-    gm[group].push(person)
+      gm[group].push(person)
+    })
   })
 
   const ret: IGroupMap = {}

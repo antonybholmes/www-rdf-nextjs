@@ -6,7 +6,7 @@ import IMouseProps from "../../interfaces/mouse-props"
 import cn from "../../lib/class-names"
 import ExtLink from "./ext-link"
 
-export const BASE_LINK_CLS = `flex flex-row items-center text-sm`
+export const BASE_LINK_CLS = `flex flex-row items-center`
 
 interface IProps extends ILinkProps, IMouseProps, IHoverProps {}
 

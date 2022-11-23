@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5 {
   @apply transition-opacity duration-300;
 }
 
+.transform-ani {
+  @apply transition-transform duration-500;
+}
+
 .markdown a {
   @apply hover:underline;
 }
