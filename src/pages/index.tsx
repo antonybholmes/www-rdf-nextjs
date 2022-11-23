@@ -9,7 +9,7 @@ import IndexPublications from "../components/publication/index-publications"
 import BaseLink from "../components/link/base-link"
 import BlueButtonLink from "../components/link/blue-button-link"
 import VCenterCol from "../components/v-center-col"
-import BlueButtonIndexLink from "../components/link/blue-button-index-link"
+import BlueButtonArrowLink from "../components/link/blue-button-arrow-link"
 
 export default function Page() {
   return (
@@ -91,13 +91,13 @@ export default function Page() {
             </p>
 
             <BaseRow>
-              <BlueButtonIndexLink
+              <BlueButtonArrowLink
                 href="/people"
                 className="mt-8"
                 ariaLabel="Meet the team"
               >
                 Meet The Team
-              </BlueButtonIndexLink>
+              </BlueButtonArrowLink>
             </BaseRow>
           </VCenterCol>
         </div>

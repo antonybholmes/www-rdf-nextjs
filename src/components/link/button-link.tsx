@@ -2,10 +2,7 @@ import ILinkProps from "../../interfaces/link-props"
 import cn from "../../lib/class-names"
 import BaseLink from "./base-link"
 
-export const BASE_BUTTON_CLASSES =
-  "flex flex-row items-center justify-center font-medium text-sm"
-
-export const BUTTON_CLASSES = `${BASE_BUTTON_CLASSES} color-ani`
+export const BUTTON_CLS = `justify-center font-semibold text-sm color-ani`
 
 export default function ButtonLink({
   href,
@@ -23,7 +20,7 @@ export default function ButtonLink({
       ariaLabel={ariaLabel}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className={cn(BUTTON_CLASSES, className)}
+      className={cn(BUTTON_CLS, className)}
     >
       {children}
     </BaseLink>

@@ -2,7 +2,7 @@ import ILinkProps from "../../interfaces/link-props"
 import cn from "../../lib/class-names"
 import PillButtonLink from "./pill-button-link"
 
-export const BUTTON_CLASSES = "bg-purple-600 hover:bg-purple-700 text-white"
+export const BUTTON_CLS = "bg-purple-600 hover:bg-purple-700 text-white"
 
 export default function PurpleButtonLink({
   href,
@@ -14,7 +14,7 @@ export default function PurpleButtonLink({
     <PillButtonLink
       href={href}
       ariaLabel={ariaLabel}
-      className={cn(BUTTON_CLASSES, className)}
+      className={cn(BUTTON_CLS, className)}
     >
       {children}
     </PillButtonLink>

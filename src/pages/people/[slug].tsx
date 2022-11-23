@@ -3,6 +3,7 @@ import { join } from "path"
 import { useEffect, useState } from "react"
 import BaseCol from "../../components/base-col"
 import BaseRow from "../../components/base-row"
+import SecondaryButton from "../../components/link/secondary-button"
 import MarkdownBody from "../../components/markdown-body"
 import ContactInfo from "../../components/people/contact-info"
 import PersonHeaderHoz from "../../components/people/person-header-hoz"
@@ -29,6 +30,7 @@ interface IProps {
 export default function Page({ person }: IProps) {
   const [hover, setHover] = useState(false)
   const [publications, setPublications] = useState<any[]>([])
+  const [showAbstract, setShowAbstract] = useState(false)
 
   function fetchData(person: IPerson) {
     axios
@@ -131,11 +133,19 @@ export default function Page({ person }: IProps) {
               <div>
                 {publications.length > 0 && (
                   <>
-                    <h1 className="text-3xl">Selected Publications</h1>
+                    <VCenterRow className="justify-between">
+                      <h1 className="text-3xl">Selected Publications</h1>
+                      <SecondaryButton
+                        onClick={() => setShowAbstract(!showAbstract)}
+                        ariaLabel={"Show Abstracts"}
+                      >
+                        {showAbstract ? "Hide" : "Show"} Abstracts
+                      </SecondaryButton>
+                    </VCenterRow>
 
                     <Publications
                       publications={publications.slice(0, 15)}
-                      showAbstract={false}
+                      showAbstract={showAbstract}
                       showMoreButton={false}
                       showCount={true}
                       className="mt-4"

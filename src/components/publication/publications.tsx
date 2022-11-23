@@ -4,17 +4,13 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-import { ReactNode, useState } from "react"
 //import Button from "../../components/button"
 //import PublicationYears from "./publicationyears"
 import { TEXT_SHOW_MORE } from "../../constants"
 import IChildrenProps from "../../interfaces/children-props"
 import HCenterRow from "../h-center-row"
-import BlueButton from "../link/blue-button"
-import OutlinePillButton from "../link/outline-pill-button"
-import OutlineRoundedButton from "../link/outline-rounded-button"
-import SecondaryButton from "../link/secondary-button"
-import VCenterRow from "../v-center-row"
+import BluePillButton from "../link/blue-pill-button"
+import BlueRoundedButton from "../link/blue-rounded-button"
 import BasePublicationList from "./base-publication-list"
 
 const RECORDS_PER_PAGE = 25
@@ -24,7 +20,8 @@ interface IProps extends IChildrenProps {
   showAbstract?: boolean
   showCount?: boolean
   showMoreButton?: boolean
-  onShowMoreClick?: any
+  showMoreOnClick?: any
+  pageBreak?: number
 }
 
 function Publications({
@@ -32,7 +29,8 @@ function Publications({
   showAbstract,
   showCount,
   showMoreButton,
-  onShowMoreClick,
+  showMoreOnClick,
+  pageBreak = -1,
   className,
 }: IProps) {
   return (
@@ -53,6 +51,7 @@ function Publications({
           publications={publications}
           showAbstract={showAbstract}
           showCount={showCount}
+          pageBreak={pageBreak}
           className={className}
         />
       )}
@@ -60,13 +59,13 @@ function Publications({
       {showMoreButton && (
         <HCenterRow className="mt-8">
           <div>
-            <BlueButton
+            <BluePillButton
               ariaLabel={TEXT_SHOW_MORE}
-              onClick={onShowMoreClick}
-              className="text-sm"
+              onClick={showMoreOnClick}
+              className="px-4 py-2"
             >
               {TEXT_SHOW_MORE}
-            </BlueButton>
+            </BluePillButton>
           </div>
         </HCenterRow>
       )}

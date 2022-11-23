@@ -1,10 +1,10 @@
 import { useState } from "react"
-import IndexArrow from "../../icons/index-arrow"
 import ILinkProps from "../../interfaces/link-props"
 import cn from "../../lib/class-names"
-import BlueButtonLink from "./blue-button-link"
+import ArrowButtonLink from "./arrow-button-link"
+import { BLUE_BUTTON_CLS } from "./blue-button-link"
 
-export default function BlueButtonIndexLink({
+export default function BlueButtonArrowLink({
   href,
   ariaLabel,
   className,
@@ -13,16 +13,14 @@ export default function BlueButtonIndexLink({
   const [hover, setHover] = useState(false)
 
   return (
-    <BlueButtonLink
+    <ArrowButtonLink
       href={href}
-      className={cn("text-sm font-medium", className)}
+      className={cn(BLUE_BUTTON_CLS, className)}
       ariaLabel={ariaLabel}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
       {children}
-
-      <IndexArrow className="w-4 stroke-white stroke-2" selected={hover} />
-    </BlueButtonLink>
+    </ArrowButtonLink>
   )
 }

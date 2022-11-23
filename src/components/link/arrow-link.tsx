@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from "react"
-import ChevronRightIcon from "../../icons/chevron-right"
+import { useState } from "react"
+import IndexArrow from "../../icons/index-arrow"
 import IUnderlineLinkProps from "../../interfaces/underline-link-props"
 import cn from "../../lib/class-names"
 import BaseLink from "./base-link"
-import { gsap } from "gsap"
-import IndexArrow from "../../icons/index-arrow"
+import ButtonLink from "./button-link"
 
-export default function IndexLink({
+export const ARROW_CLS = "gap-x-1"
+
+export default function ArrowLink({
   href,
   ariaLabel,
   underline = false,
@@ -42,7 +43,7 @@ export default function IndexLink({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       underline={underline}
-      className={cn("flex flex-row items-center gap-x-1", className)}
+      className={cn(ARROW_CLS, className)}
     >
       {children}
 

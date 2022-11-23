@@ -1,8 +1,8 @@
 import IUnderlineLinkProps from "../../interfaces/underline-link-props"
 import cn from "../../lib/class-names"
-import IndexLink from "./index-link"
+import ArrowLink from "./arrow-link"
 
-export default function BlueIndexLink({
+export default function BlueArrowLink({
   href,
   ariaLabel,
   underline = false,
@@ -10,13 +10,13 @@ export default function BlueIndexLink({
   children,
 }: IUnderlineLinkProps) {
   return (
-    <IndexLink
+    <ArrowLink
       href={href}
       ariaLabel={ariaLabel}
       underline={underline}
       className={cn("stroke-blue-500 text-blue-600", className)}
     >
       {children}
-    </IndexLink>
+    </ArrowLink>
   )
 }

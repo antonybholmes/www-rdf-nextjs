@@ -2,8 +2,9 @@ import MailIcon from "../../icons/mail"
 import PhoneIcon from "../../icons/phone"
 import cn from "../../lib/class-names"
 import BaseRow from "../base-row"
+import BaseLink from "../link/base-link"
 import BlackLink from "../link/black-link"
-import BlueButtonIndexLink from "../link/blue-button-index-link"
+import BlueButtonArrowLink from "../link/blue-button-arrow-link"
 import BlueLink from "../link/blue-link"
 import VCenterRow from "../v-center-row"
 
@@ -28,6 +29,7 @@ export default function ContactInfo({
                 href={`mailto:${person.frontmatter.email}`}
                 className="flex flex-row items-center"
                 ariaLabel={`Email ${person.frontmatter.email}`}
+                underline={true}
               >
                 <MailIcon className="w-4" />
               </BlueLink>
@@ -35,6 +37,7 @@ export default function ContactInfo({
               <BlueLink
                 href={`mailto:${person.frontmatter.email}`}
                 ariaLabel={`Email ${person.frontmatter.email}`}
+                underline={true}
               >
                 {person.frontmatter.email}
               </BlueLink>
@@ -44,17 +47,18 @@ export default function ContactInfo({
         {showPhone && person.frontmatter.phone !== "" && (
           <li>
             <VCenterRow className="gap-2">
-              <BlackLink
+              <BaseLink
                 href={`tel:${person.frontmatter.phone}`}
                 className="flex flex-row items-center"
                 ariaLabel={`Call ${person.frontmatter.phone}`}
               >
                 <PhoneIcon className="w-4" />
-              </BlackLink>
+              </BaseLink>
 
               <BlackLink
                 href={`tel:${person.frontmatter.phone}`}
                 ariaLabel={`Call ${person.frontmatter.phone}`}
+                underline={true}
               >
                 {person.frontmatter.phone}
               </BlackLink>
@@ -65,13 +69,13 @@ export default function ContactInfo({
 
       {person.frontmatter.profile && (
         <BaseRow>
-          <BlueButtonIndexLink
+          <BlueButtonArrowLink
             href={person.frontmatter.profile}
             className="mt-2"
             ariaLabel="View Columbia Profile"
           >
             Columbia Profile
-          </BlueButtonIndexLink>
+          </BlueButtonArrowLink>
         </BaseRow>
       )}
     </>

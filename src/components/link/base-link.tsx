@@ -6,6 +6,8 @@ import IMouseProps from "../../interfaces/mouse-props"
 import cn from "../../lib/class-names"
 import ExtLink from "./ext-link"
 
+export const BASE_LINK_CLS = `flex flex-row items-center text-sm`
+
 interface IProps extends ILinkProps, IMouseProps, IHoverProps {}
 
 function BaseLink({
@@ -43,7 +45,7 @@ function BaseLink({
       <ExtLink
         href={href}
         ariaLabel={ariaLabel}
-        className={className}
+        className={cn(BASE_LINK_CLS, className)}
         underline={underline}
         target={target}
         onClick={onClick}
@@ -64,7 +66,7 @@ function BaseLink({
       <Link
         href={href}
         aria-label={ariaLabel}
-        className={cn([underline, `hover:underline`], className)}
+        className={cn(BASE_LINK_CLS, [underline, `hover:underline`], className)}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}

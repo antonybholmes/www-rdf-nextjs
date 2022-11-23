@@ -2,7 +2,8 @@ import IAriaProps from "../../interfaces/aria-props"
 import IChildrenProps from "../../interfaces/children-props"
 import IMouseProps from "../../interfaces/mouse-props"
 import cn from "../../lib/class-names"
-import { BUTTON_CLASSES } from "./button-link"
+import { BASE_LINK_CLS } from "./base-link"
+import { BUTTON_CLS } from "./button-link"
 
 export interface IButtonProps extends IChildrenProps, IAriaProps, IMouseProps {}
 
@@ -25,7 +26,7 @@ export default function Button({
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       aria-label={ariaLabel}
-      className={cn(BUTTON_CLASSES, className)}
+      className={cn(BASE_LINK_CLS, BUTTON_CLS, className)}
       style={style}
     >
       {children}

@@ -152,14 +152,14 @@ export default function PersonHeaderHoz({
           <ContactInfo person={person} />
 
           {person.frontmatter.profile && (
-            <BlueIndexLink
+            <BlueArrowLink
               href={person.frontmatter.profile}
               className="mt-8  text-sm"
               ariaLabel="Columbia Profile"
               underline={true}
             >
               Columbia Profile
-            </BlueIndexLink>
+            </BlueArrowLink>
           )}
         </div>
       </div> */}

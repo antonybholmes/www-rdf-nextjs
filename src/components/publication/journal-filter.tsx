@@ -85,7 +85,7 @@ function JournalFilter({
       {/* <Button
         onClick={onShowAll}
         ariaLabel="Show more items"
-        className={cn(BASE_BUTTON_CLASSES, "rotate-ani w-full", [
+        className={cn(BASE_BUTTON_CLS, "rotate-ani w-full", [
           showAll,
           "rotate-180",
         ])}

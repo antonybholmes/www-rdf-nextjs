@@ -1,10 +1,10 @@
 import ILinkProps from "../../interfaces/link-props"
 import cn from "../../lib/class-names"
-import ButtonLink from "./button-link"
+import PillButtonLink from "./pill-button-link"
 
-export const PILL_BUTTON_LINK_CLS = `rounded-full overflow-hidden`
+export const COLOR_PILL_BUTTON_CLS = "text-white px-3 py-1.5 text-sm"
 
-export default function PillButtonLink({
+export default function ColorPillButtonLink({
   href,
   ariaLabel,
   underline,
@@ -14,17 +14,15 @@ export default function PillButtonLink({
   children,
 }: ILinkProps) {
   return (
-    <ButtonLink
+    <PillButtonLink
       href={href}
       ariaLabel={ariaLabel}
+      className={cn(COLOR_PILL_BUTTON_CLS, className)}
       underline={underline}
-      className={cn(PILL_BUTTON_LINK_CLS, className)}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
       {children}
-    </ButtonLink>
+    </PillButtonLink>
   )
 }
-
-//font-medium bg-blue-600 hover:bg-blue-500 text-white shadow-md rounded px-5 py-3 trans-ani"

@@ -4,7 +4,6 @@ import ChevronRightIcon from "../icons/chevron-right"
 import IAriaProps from "../interfaces/aria-props"
 import IChildrenProps from "../interfaces/children-props"
 import cn from "../lib/class-names"
-import PillButton from "./link/pill-button"
 import RoundedButton from "./link/rounded-button"
 
 const BTN_CLS =
@@ -51,7 +50,7 @@ function NavButton({
       ariaLabel={ariaLabel}
       className={cn(
         BTN_CLS,
-        "gap-x-2 stroke-blue-500 px-2 text-blue-600",
+        "gap-x-2 stroke-blue-600 px-2 text-blue-600",
         className
       )}
     >
@@ -107,7 +106,7 @@ function SelectedPageButton({ page, onClick }: ISelectedPageButtonProps) {
     <BasePageButton
       page={page}
       onClick={onClick}
-      className="bg-blue-500 text-white"
+      className="bg-blue-600 text-white"
     >
       {page}
     </BasePageButton>

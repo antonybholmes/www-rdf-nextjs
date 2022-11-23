@@ -1,7 +1,6 @@
 import cn from "../../lib/class-names"
 import Button, { IButtonProps } from "./button"
-import { BUTTON_CLASSES } from "./button-link"
-import { PILL_BUTTON_CLASSES } from "./pill-button-link"
+import { PILL_BUTTON_LINK_CLS } from "./pill-button-link"
 
 export default function PillButton({
   onClick,
@@ -14,7 +13,7 @@ export default function PillButton({
     <Button
       onClick={onClick}
       ariaLabel={ariaLabel}
-      className={cn(BUTTON_CLASSES, PILL_BUTTON_CLASSES, className)}
+      className={cn(PILL_BUTTON_LINK_CLS, className)}
       style={style}
     >
       {children}

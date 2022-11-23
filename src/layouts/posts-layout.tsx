@@ -1,5 +1,5 @@
 import { format, parseISO } from "date-fns"
-import BlueIndexLink from "../components/link/blue-index-link"
+import BlueArrowLink from "../components/link/blue-index-link"
 import ToBlueLink from "../components/link/to-blue-link"
 import MarkdownBody from "../components/markdown-body"
 import { RECORDS_PER_PAGE } from "../constants"
@@ -33,13 +33,13 @@ export default function PostsLayout({ title, posts }: IProps) {
                 </h2>
               </ToBlueLink>
               <MarkdownBody html={post.excerpt} />
-              <BlueIndexLink
+              <BlueArrowLink
                 href={url}
                 ariaLabel="View article"
                 className="font-semibold"
               >
                 Read more
-              </BlueIndexLink>
+              </BlueArrowLink>
             </li>
           )
         })}

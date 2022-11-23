@@ -2,7 +2,7 @@ import ILinkProps from "../../interfaces/link-props"
 import cn from "../../lib/class-names"
 import ButtonLink from "./button-link"
 
-export const ROUNDED_BUTTON_CLASSES = `rounded-md overflow-hidden`
+export const ROUNDED_BUTTON_CLS = `rounded-md overflow-hidden`
 
 export default function RoundedButtonLink({
   href,
@@ -20,7 +20,7 @@ export default function RoundedButtonLink({
       underline={underline}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className={cn(ROUNDED_BUTTON_CLASSES, className)}
+      className={cn(ROUNDED_BUTTON_CLS, className)}
     >
       {children}
     </ButtonLink>

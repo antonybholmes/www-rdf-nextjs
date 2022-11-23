@@ -1,8 +1,10 @@
 import cn from "../../lib/class-names"
-import { ROUNDED_BUTTON_CLS } from "./rounded-button-link"
-import Button, { IButtonProps } from "./button"
+import { BLUE_BUTTON_CLS } from "./blue-button-link"
+import { IButtonProps } from "./button"
+import { COLOR_BUTTON_CLS } from "./color-button-link"
+import RoundedButton from "./rounded-button"
 
-export default function RoundedButton({
+export default function BlueRoundedButton({
   onClick,
   onMouseEnter,
   onMouseLeave,
@@ -14,18 +16,18 @@ export default function RoundedButton({
   children,
 }: IButtonProps) {
   return (
-    <Button
+    <RoundedButton
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       ariaLabel={ariaLabel}
-      className={cn(ROUNDED_BUTTON_CLS, className)}
+      className={cn(COLOR_BUTTON_CLS, BLUE_BUTTON_CLS, className)}
       style={style}
     >
       {children}
-    </Button>
+    </RoundedButton>
   )
 }
 

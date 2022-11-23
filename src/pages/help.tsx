@@ -1,11 +1,11 @@
 import BaseCol from "../components/base-col"
 import BlueLink from "../components/link/blue-link"
-import { ROUNDED_BUTTON_CLASSES } from "../components/link/rounded-button-link"
+import { ROUNDED_BUTTON_CLS } from "../components/link/rounded-button-link"
 import { SITE_NAME, UPDATED, VERSION, YEAR } from "../constants"
 import SideLayout from "../layouts/side-layout"
 import cn from "../lib/class-names"
 
-const CLS = cn(ROUNDED_BUTTON_CLASSES, "block px-5 py-2 bg-sky-100 font-medium")
+const CLS = cn(ROUNDED_BUTTON_CLS, "block px-5 py-2 bg-sky-100 font-medium")
 
 export default function Page() {
   return (

@@ -245,7 +245,8 @@ export default function Page() {
 
   const [pagePublications, setPagePublications] = useState<any[]>([])
 
-  const [page, setPage] = useState(-1)
+  const [pageStart, setPageStart] = useState(-1)
+  const [pageEnd, setPageEnd] = useState(-1)
   const [pages, setPages] = useState(-1)
 
   const [yearData, setYearData] = useState<any[]>([])
@@ -307,7 +308,8 @@ export default function Page() {
       )
     }
 
-    setPage(0)
+    setPageStart(0)
+    setPageEnd(0)
   }, [year1, year2])
 
   useEffect(() => {
@@ -328,11 +330,12 @@ export default function Page() {
 
   useEffect(() => {
     updatePagePublications()
-  }, [page])
+  }, [pageStart, pageEnd])
 
   const updatePagePublications = () => {
-    const s = page * recordsPerPage
-    setPagePublications(sortedPublications.slice(s, s + recordsPerPage))
+    const s1 = pageStart * recordsPerPage
+    const s2 = pageEnd * recordsPerPage
+    setPagePublications(sortedPublications.slice(s1, s2 + recordsPerPage))
   }
 
   // useEffect(() => {
@@ -423,7 +426,12 @@ export default function Page() {
   }
 
   function onPageChanged(page: number) {
-    setPage(page - 1)
+    setPageStart(page - 1)
+    setPageEnd(page - 1)
+  }
+
+  function showMoreOnClick() {
+    setPageEnd(pageEnd + 1)
   }
 
   function onJournalClick(journal: string, selected: boolean) {
@@ -493,7 +501,7 @@ export default function Page() {
         <div>
           <VCenterRow className="justify-between">
             <span className="text-sm font-medium text-gray-500">
-              {results(page, yearFilteredPublications)}
+              {results(pageStart, yearFilteredPublications)}
             </span>
             <SecondaryButton
               onClick={() => setShowAbstract(!showAbstract)}
@@ -507,14 +515,16 @@ export default function Page() {
             publications={pagePublications}
             showAbstract={showAbstract}
             showCount={true}
-            showMoreButton={false}
+            showMoreButton={true}
             className="mt-8"
+            showMoreOnClick={showMoreOnClick}
+            pageBreak={recordsPerPage}
           />
 
           {yearFilteredPublications.length > recordsPerPage && (
             <HCenterRow className="mt-16">
               <Pagination
-                page={page + 1}
+                page={pageEnd + 1}
                 pages={pages}
                 onClick={onPageChanged}
               />

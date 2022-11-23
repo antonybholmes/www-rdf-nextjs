@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import cn from "../../lib/class-names"
 import { IButtonProps } from "./button"
 import OutlineRoundedButton from "./outline-rounded-button"
-import { SECONDARY_BUTTON_CLASSES } from "./secondary-button-link"
+import { SECONDARY_BUTTON_CLS } from "./secondary-button-link"
 
 export default function SecondaryButton({
   onClick,
@@ -34,7 +34,7 @@ export default function SecondaryButton({
       onMouseDown={() => setDown(true)}
       ariaLabel={ariaLabel}
       className={cn(
-        SECONDARY_BUTTON_CLASSES,
+        SECONDARY_BUTTON_CLS,
         [down, "bg-gray-200", [hover, "bg-gray-100", "bg-gray-50"]],
         className
       )}

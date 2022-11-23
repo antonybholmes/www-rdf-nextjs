@@ -1,7 +1,7 @@
 import cn from "../../lib/class-names"
-import { BLUE_BUTTON_CLASSES } from "./blue-button-link"
-import { IButtonProps } from "./button"
-import PillButton from "./pill-button"
+import { BLUE_BUTTON_CLS } from "./blue-button-link"
+import Button, { IButtonProps } from "./button"
+import { COLOR_BUTTON_CLS } from "./color-button-link"
 
 export default function BlueButton({
   onClick,
@@ -11,13 +11,13 @@ export default function BlueButton({
   children,
 }: IButtonProps) {
   return (
-    <PillButton
+    <Button
       ariaLabel={ariaLabel}
       onClick={onClick}
-      className={cn(BLUE_BUTTON_CLASSES, className)}
+      className={cn(COLOR_BUTTON_CLS, BLUE_BUTTON_CLS, className)}
       style={style}
     >
       {children}
-    </PillButton>
+    </Button>
   )
 }
