@@ -5,7 +5,7 @@ import cn from "../../lib/class-names"
 // export const ORB_SIZE = "10px"
 // export const ORB_OFFSET = "3px"
 
-type RadioButtonProps = {
+interface IRadioButtonProps {
   index: number
   text: string
   selected: boolean
@@ -17,7 +17,7 @@ export default function RadioButton({
   text,
   selected,
   onChange,
-}: RadioButtonProps) {
+}: IRadioButtonProps) {
   const [hover, setHover] = useState(false)
 
   function onMouseEnter(e: any) {

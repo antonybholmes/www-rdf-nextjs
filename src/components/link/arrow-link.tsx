@@ -3,7 +3,6 @@ import IndexArrow from "../../icons/index-arrow"
 import IUnderlineLinkProps from "../../interfaces/underline-link-props"
 import cn from "../../lib/class-names"
 import BaseLink from "./base-link"
-import ButtonLink from "./button-link"
 
 export const ARROW_CLS = "gap-x-1"
 

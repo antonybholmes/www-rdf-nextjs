@@ -1,13 +1,13 @@
 import { useState } from "react"
 import ExpandArrow from "./expand-arrow"
 
-type ButtonProps = {
+interface IProps {
   isExpanded: boolean
   onClick?: any
   hover?: boolean
 }
 
-function ExpandButton({ isExpanded, onClick, hover }: ButtonProps) {
+export default function ExpandButton({ isExpanded, onClick, hover }: IProps) {
   const [_hover, _setHover] = useState(false)
 
   // useEffect(() => {
@@ -46,10 +46,3 @@ function ExpandButton({ isExpanded, onClick, hover }: ButtonProps) {
     </button>
   )
 }
-
-ExpandButton.defaultProps = {
-  onClick: null,
-  hover: false,
-}
-
-export default ExpandButton

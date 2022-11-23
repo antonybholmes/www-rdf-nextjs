@@ -1,15 +1,14 @@
 import { useState } from "react"
 import RadioButton from "./radio-button"
-import * as React from "react"
 
-type RadioButtonGroupProps = {
+interface RadioButtonGroupProps {
   items: string[]
   selected: string
   onChange: any
   className?: string
 }
 
-function RadioButtonGroup({
+export default function RadioButtonGroup({
   items,
   selected,
   onChange,
@@ -41,5 +40,3 @@ function RadioButtonGroup({
     </ul>
   )
 }
-
-export default RadioButtonGroup

@@ -74,7 +74,7 @@ function BasePublicationList({
 
   return (
     <ul className={cn("flex flex-col gap-y-2", className)}>
-      {pages.map((page, index) => {
+      {pages.map(page => {
         return page
       })}
     </ul>

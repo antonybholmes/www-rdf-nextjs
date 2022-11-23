@@ -46,7 +46,7 @@ export default function PersonCard({
 
   const titles = getContextName(titleMap).split(";")
 
-  let img
+  let img: JSX.Element
 
   const alt = `Headshot of ${person.frontmatter.name}`
 
