@@ -491,9 +491,10 @@ export default function Page() {
           className="grow"
         />
       }
+      crumbs={[]}
     >
       <></>
-      <ThreeQuarterLayout className="mt-8 gap-x-16">
+      <ThreeQuarterLayout className="gap-x-16">
         <div>
           <VCenterRow className="justify-between">
             <span className="text-sm font-medium text-gray-500">

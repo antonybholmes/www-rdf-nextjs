@@ -133,7 +133,7 @@ export default function PersonPage({ person }: IProps) {
               <div>
                 {publications.length > 0 && (
                   <>
-                    <VCenterRow className="justify-between">
+                    <VCenterRow className="flex-wrap justify-between gap-y-2">
                       <h1 className="text-3xl">Selected Publications</h1>
                       <SecondaryButton
                         onClick={() => setShowAbstract(!showAbstract)}

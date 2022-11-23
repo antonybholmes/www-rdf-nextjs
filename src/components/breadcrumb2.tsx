@@ -94,7 +94,7 @@ export default function Breadcrumb({
   return (
     <ul
       className={cn(
-        "flex flex-row flex-nowrap items-center gap-x-3 stroke-gray-500 text-base font-medium text-gray-400/80",
+        "flex flex-row flex-nowrap items-center gap-x-2 stroke-gray-500 text-base font-medium text-gray-400/80 lg:gap-x-3",
         [mode === "dark", "text-gray-50"],
         className
       )}

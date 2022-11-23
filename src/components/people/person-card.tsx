@@ -58,7 +58,7 @@ export default function PersonCard({
         )}.webp`}
         extZoom={hover}
         alt={alt}
-        className={cn(`w-full overflow-hidden rounded-full border`, b)}
+        className={cn(`w-56 overflow-hidden rounded-full border lg:w-full`, b)}
         size={[640, 640]}
         decoding={decoding}
         loading={loading}

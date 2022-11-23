@@ -17,7 +17,7 @@ export default function Page({ allPeople }: IProps) {
   return (
     <ContentLayout title="People" crumbs={[]}>
       <></>
-      <ThreeQuarterLayout isRight={false} className="main-content mt-16">
+      <ThreeQuarterLayout isRight={false} className="main-content">
         <div className="flex w-full flex-col gap-y-16">
           {/* <section>
             <h1 className="mb-4 text-2xl">Director</h1>
