@@ -15,23 +15,23 @@ export default function IndexLink({
 }: IUnderlineLinkProps) {
   const [hover, setHover] = useState(false)
 
-  const iconEl = useRef(null)
+  // const iconEl = useRef(null)
 
-  useEffect(() => {
-    gsap
-      .timeline()
-      .to(
-        iconEl.current,
-        { x: hover ? "0.15rem" : 0, ease: "power3.out", duration: 0.2 },
-        0
-      )
-  }, [hover])
+  // useEffect(() => {
+  //   gsap
+  //     .timeline()
+  //     .to(
+  //       iconEl.current,
+  //       { x: hover ? "0.15rem" : 0, ease: "power3.out", duration: 0.2 },
+  //       0
+  //     )
+  // }, [hover])
 
-  function _handleMouseEnter(e: any) {
+  function onMouseEnter() {
     setHover(true)
   }
 
-  function _handleMouseLeave(e: any) {
+  function onMouseLeave() {
     setHover(false)
   }
 
@@ -39,10 +39,10 @@ export default function IndexLink({
     <BaseLink
       href={href}
       ariaLabel={ariaLabel}
-      onMouseEnter={_handleMouseEnter}
-      onMouseLeave={_handleMouseLeave}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       underline={underline}
-      className={cn("flex flex-row gap-x-1", className)}
+      className={cn("flex flex-row items-center gap-x-1", className)}
     >
       {children}
 

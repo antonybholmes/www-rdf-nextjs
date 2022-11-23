@@ -4,7 +4,7 @@ import { FOOTER_LINKS, INFO_LINKS } from "../menus"
 
 export default function Page() {
   return (
-    <ContentLayout title="Site Map">
+    <ContentLayout title="Site Map" crumbs={[]}>
       <></>
       <div className="grid grid-cols-2 lg:grid-cols-4">
         <section>
@@ -12,7 +12,11 @@ export default function Page() {
           {FOOTER_LINKS.map((link: any, i: number) => {
             return (
               <div className="mt-2" key={i}>
-                <BlueLink ariaLabel={`Goto ${link.name}`} href={link.url}>
+                <BlueLink
+                  ariaLabel={`Goto ${link.name}`}
+                  href={link.url}
+                  underline={true}
+                >
                   {link.name}
                 </BlueLink>
               </div>
@@ -26,7 +30,11 @@ export default function Page() {
             {INFO_LINKS.map(
               (link: { name: string; url: string }, index: number) => (
                 <li key={index}>
-                  <BlueLink href={link.url} ariaLabel={`View ${link.name}`}>
+                  <BlueLink
+                    href={link.url}
+                    ariaLabel={`View ${link.name}`}
+                    underline={true}
+                  >
                     {link.name}
                   </BlueLink>
                 </li>
@@ -34,7 +42,7 @@ export default function Page() {
             )}
 
             <li>
-              <BlueLink href="/help" ariaLabel={`View help`}>
+              <BlueLink href="/help" ariaLabel={`View help`} underline={true}>
                 Help
               </BlueLink>
             </li>

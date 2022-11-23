@@ -16,7 +16,7 @@ export default function ContentLayout({
   title = "",
   description,
   supertitle,
-  showTitle = true,
+  showTitle = false,
   tab,
   isIndexed,
   headerClassName, //"text-white bg-card-blue lg:text-gray-900 lg:bg-white",
@@ -40,14 +40,14 @@ export default function ContentLayout({
         <>
           {crumbs && <Breadcrumb crumbs={crumbs} className="mt-8 mb-16" />}
 
-          {/* {showTitle && title !== "" && (
+          {showTitle && title !== "" && (
             <PageTitle
               title={title}
               subtitle={description}
               supertitle={supertitle}
-              className="mt-8"
+              className="mt-8 mb-16"
             />
-          )} */}
+          )}
 
           {
             // @ts-ignore

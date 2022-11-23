@@ -19,12 +19,7 @@ export default function MarkdownLayout({
   }
 
   return (
-    <SideLayout
-      title={title}
-      supertitle={supertitle}
-      tab={tab}
-      crumbs={[[tab, `/${tab.toLowerCase()}`]]}
-    >
+    <SideLayout title={title} supertitle={supertitle} tab={tab} crumbs={[]}>
       <>
         <PageTitle
           title={title}

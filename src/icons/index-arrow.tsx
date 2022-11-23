@@ -1,6 +1,8 @@
+import { gsap } from "gsap"
 import { useEffect, useRef } from "react"
 import IconProps from "../interfaces/icon-props"
-import { gsap } from "gsap"
+
+const DURATION = 0.2
 
 interface IProps extends IconProps {
   selected?: boolean
@@ -21,8 +23,7 @@ export default function IndexArrow({ selected = false, className }: IProps) {
         arrowRef.current,
         {
           x: selected ? "2px" : 0,
-
-          duration: 0.1,
+          duration: DURATION,
         },
         0
       )
@@ -30,8 +31,7 @@ export default function IndexArrow({ selected = false, className }: IProps) {
         lineRef.current,
         {
           scaleX: selected ? 1 : 0,
-
-          duration: 0.1,
+          duration: DURATION,
         },
         0
       )
@@ -44,8 +44,8 @@ export default function IndexArrow({ selected = false, className }: IProps) {
       className={className}
       style={{ strokeLinecap: "round", strokeLinejoin: "round", fill: "none" }}
     >
-      <line ref={lineRef} x1="4" y1="8" x2="12" y2="8" />
-      <path ref={arrowRef} d="M 6,3 L 11,8 L 6,13" />
+      <line ref={lineRef} x1="4" y1="9" x2="12" y2="9" />
+      <path ref={arrowRef} d="M 6,5 L 10,9 L 6,13" />
     </svg>
   )
 }

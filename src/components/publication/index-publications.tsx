@@ -49,7 +49,11 @@ export default function IndexPublications() {
       <div>
         <h1 className="text-center text-5xl ">Recent Publications</h1>
 
-        <Publications publications={publications} showCount={true} />
+        <Publications
+          publications={publications}
+          showCount={true}
+          className="mt-8"
+        />
       </div>
       <></>
     </ContentDiv>

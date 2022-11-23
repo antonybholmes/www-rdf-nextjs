@@ -1,11 +1,9 @@
-import { useState } from "react"
-import IndexArrow from "../../icons/index-arrow"
 import MailIcon from "../../icons/mail"
 import PhoneIcon from "../../icons/phone"
 import cn from "../../lib/class-names"
 import BaseRow from "../base-row"
 import BlackLink from "../link/black-link"
-import BlueButtonLink from "../link/blue-button-link"
+import BlueButtonIndexLink from "../link/blue-button-index-link"
 import BlueLink from "../link/blue-link"
 import VCenterRow from "../v-center-row"
 
@@ -20,8 +18,6 @@ export default function ContactInfo({
   className,
   showPhone = true,
 }: ContactInfoProps) {
-  const [hover, setHover] = useState(false)
-
   return (
     <>
       <ul className={cn("flex flex-col gap-y-2 lg:gap-x-4", className)}>
@@ -69,19 +65,13 @@ export default function ContactInfo({
 
       {person.frontmatter.profile && (
         <BaseRow>
-          <BlueButtonLink
+          <BlueButtonIndexLink
             href={person.frontmatter.profile}
-            className="mt-2 text-sm font-medium"
+            className="mt-2"
             ariaLabel="View Columbia Profile"
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
           >
             Columbia Profile
-            <IndexArrow
-              className="w-4 stroke-white stroke-2"
-              selected={hover}
-            />
-          </BlueButtonLink>
+          </BlueButtonIndexLink>
         </BaseRow>
       )}
     </>

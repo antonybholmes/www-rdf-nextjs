@@ -34,6 +34,7 @@ import cn from "../lib/class-names"
 import pubYearCount from "../lib/pub-year-count"
 import ThreeQuarterLayout from "../layouts/three-quarter-layout"
 import ContentLayout from "../layouts/content-layout"
+import SecondaryButton from "../components/link/secondary-button"
 
 const EMPTY_QUERY = ""
 
@@ -226,7 +227,7 @@ export default function Page() {
     new Set<string>()
   )
 
-  const [showAbstract, setShowAbstracts] = useState(false)
+  const [showAbstract, setShowAbstract] = useState(false)
   const [expandAll, setExpandAll] = useState(false)
   //const [instituteOnly, setInstituteOnly] = useState(true)
   const [firstAuthorOnly, setFirstAuthorOnly] = useState(true) //id === "all")
@@ -252,6 +253,8 @@ export default function Page() {
   const [year2, setYear2] = useState(-1)
 
   const [recordsPerPage, setRecordsPerPage] = useState(RECORDS_PER_PAGE)
+
+  const [showAll, setShowAll] = useState(false)
 
   function fetchData() {
     axios
@@ -411,8 +414,8 @@ export default function Page() {
     setSortOrder(value)
   }
 
-  function onShowAbstractsChange(selected: boolean) {
-    setShowAbstracts(selected)
+  function onShowAbstractChange(selected: boolean) {
+    setShowAbstract(selected)
   }
 
   function onFirstAuthorOnlyChange(selected: boolean) {
@@ -488,15 +491,24 @@ export default function Page() {
       <></>
       <ThreeQuarterLayout className="mt-8 gap-x-16">
         <div>
-          <p className="text-sm text-gray-700">
-            {results(page, yearFilteredPublications)}
-          </p>
+          <VCenterRow className="justify-between">
+            <span className="text-sm font-medium text-gray-500">
+              {results(page, yearFilteredPublications)}
+            </span>
+            <SecondaryButton
+              onClick={() => setShowAbstract(!showAbstract)}
+              ariaLabel={"Show Abstracts"}
+            >
+              {showAbstract ? "Hide Abstracts" : "Show Abstracts"}
+            </SecondaryButton>
+          </VCenterRow>
 
           <Publications
             publications={pagePublications}
             showAbstract={showAbstract}
             showCount={true}
             showMoreButton={false}
+            className="mt-8"
           />
 
           {yearFilteredPublications.length > recordsPerPage && (

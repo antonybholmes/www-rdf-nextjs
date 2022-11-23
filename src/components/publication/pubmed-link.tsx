@@ -43,11 +43,7 @@ export default function PubMedLink({ person }: IPubMedLinkProps) {
       <img
         src="/assets/svg/pubmed-logo-blue.svg"
         alt="View publications on PubMed"
-        className={cn("w-40 transition-opacity duration-200", [
-          _hover,
-          "opacity-100",
-          "opacity-80",
-        ])}
+        className={cn("opacity-ani w-40 opacity-100 hover:opacity-90")}
         width="249"
         height="69"
       />

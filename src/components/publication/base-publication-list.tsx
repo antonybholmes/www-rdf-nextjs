@@ -5,9 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
+import IClassProps from "../../interfaces/class-props"
 import BasePublication from "./base-publication"
 
-interface PublicationListProps {
+interface PublicationListProps extends IClassProps {
   publications: any[]
   showAbstract?: boolean
   showCount?: boolean
@@ -20,9 +21,10 @@ function BasePublicationList({
   publications,
   showAbstract = false,
   showCount = false,
+  className,
 }: PublicationListProps) {
   return (
-    <ul>
+    <ul className={className}>
       {publications.map((publication: any, index: number) => (
         <li
           className={`${index < publications.length - 1 ? "mb-4" : ""}`}

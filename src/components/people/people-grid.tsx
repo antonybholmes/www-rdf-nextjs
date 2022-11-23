@@ -53,7 +53,7 @@ export default function PeopleGrid({
 
     <ul
       className={cn(
-        `grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5`,
+        `grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 4xl:grid-cols-5`,
         className
       )}
     >

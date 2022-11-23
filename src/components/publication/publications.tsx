@@ -8,6 +8,7 @@ import { ReactNode, useState } from "react"
 //import Button from "../../components/button"
 //import PublicationYears from "./publicationyears"
 import { TEXT_SHOW_MORE } from "../../constants"
+import IChildrenProps from "../../interfaces/children-props"
 import HCenterRow from "../h-center-row"
 import BlueButton from "../link/blue-button"
 import OutlinePillButton from "../link/outline-pill-button"
@@ -18,13 +19,12 @@ import BasePublicationList from "./base-publication-list"
 
 const RECORDS_PER_PAGE = 25
 
-type PublicationsProps = {
+interface IProps extends IChildrenProps {
   publications: any[]
   showAbstract?: boolean
   showCount?: boolean
   showMoreButton?: boolean
   onShowMoreClick?: any
-  children?: ReactNode
 }
 
 function Publications({
@@ -33,9 +33,8 @@ function Publications({
   showCount,
   showMoreButton,
   onShowMoreClick,
-}: PublicationsProps) {
-  const [showAll, setShowAll] = useState(false)
-
+  className,
+}: IProps) {
   return (
     <>
       {/* {publications.length > 0 && showCount && (
@@ -49,21 +48,12 @@ function Publications({
         </HCenterRow>
       )} */}
 
-      <VCenterRow>
-        <SecondaryButton
-          className="my-4"
-          onClick={() => setShowAll(!showAll)}
-          ariaLabel={"Show Abstracts"}
-        >
-          {showAll ? "Hide Abstracts" : "Show Abstracts"}
-        </SecondaryButton>
-      </VCenterRow>
-
       {publications.length > 0 && (
         <BasePublicationList
           publications={publications}
-          showAbstract={showAbstract || showAll}
+          showAbstract={showAbstract}
           showCount={showCount}
+          className={className}
         />
       )}
 

@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import HCenterCol from "../h-center-col"
 import SecondaryButton from "../link/secondary-button"
+import VCenterRow from "../v-center-row"
 
 function Bar({ x, y, height, width, isColored, isHighlighted }) {
   return (
@@ -190,15 +191,13 @@ export default function PubRangeSlider({
 
   return (
     <div className="w-full">
-      <h2 className="font-medium">Results By Year</h2>
+      <VCenterRow className="justify-between">
+        <h2 className="font-medium">Years</h2>
 
-      <SecondaryButton
-        onClick={onResetClick}
-        ariaLabel="Reset year range"
-        className="mt-4"
-      >
-        Reset
-      </SecondaryButton>
+        <SecondaryButton onClick={onResetClick} ariaLabel="Reset year range">
+          Reset
+        </SecondaryButton>
+      </VCenterRow>
       <HCenterCol>
         <div className="relative pb-8">
           <svg

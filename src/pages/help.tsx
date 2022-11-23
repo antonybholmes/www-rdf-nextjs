@@ -9,7 +9,7 @@ const CLS = cn(ROUNDED_BUTTON_CLASSES, "block px-5 py-2 bg-sky-100 font-medium")
 
 export default function Page() {
   return (
-    <SideLayout title="Help" showTitle={false}>
+    <SideLayout title="Help" crumbs={[]}>
       <>
         <BaseCol className="gap-y-4 rounded-xl bg-apple-gray p-6 text-sm">
           <p>

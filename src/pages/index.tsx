@@ -9,6 +9,7 @@ import IndexPublications from "../components/publication/index-publications"
 import BaseLink from "../components/link/base-link"
 import BlueButtonLink from "../components/link/blue-button-link"
 import VCenterCol from "../components/v-center-col"
+import BlueButtonIndexLink from "../components/link/blue-button-index-link"
 
 export default function Page() {
   return (
@@ -90,13 +91,13 @@ export default function Page() {
             </p>
 
             <BaseRow>
-              <BlueButtonLink
+              <BlueButtonIndexLink
                 href="/people"
                 className="mt-8"
                 ariaLabel="Meet the team"
               >
                 Meet The Team
-              </BlueButtonLink>
+              </BlueButtonIndexLink>
             </BaseRow>
           </VCenterCol>
         </div>

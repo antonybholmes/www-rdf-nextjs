@@ -41,7 +41,7 @@ export default function CheckMark({
       className={cn("color-ani w-4.5 overflow-hidden rounded border-2", [
         selected,
         "border-blue-500 bg-blue-500",
-        [hover, "border-blue-400", "border-gray-300"],
+        [hover, "border-blue-500", "border-gray-300"],
       ])}
       style={{ strokeLinecap: "round", strokeLinejoin: "round", fill: "none" }}
     >

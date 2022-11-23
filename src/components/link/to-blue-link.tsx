@@ -6,7 +6,7 @@ export default function ToBlueLink({
   href,
   ariaLabel,
   className,
-  underline = true,
+  underline = false,
   children,
 }: IUnderlineLinkProps) {
   return (
@@ -14,7 +14,7 @@ export default function ToBlueLink({
       href={href}
       ariaLabel={ariaLabel}
       underline={underline}
-      className={cn(`hover:text-blue-600`, className)}
+      className={cn(`color-ani hover:text-blue-600`, className)}
     >
       {children}
     </BaseLink>

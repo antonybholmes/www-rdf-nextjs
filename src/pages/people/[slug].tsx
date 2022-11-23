@@ -3,7 +3,6 @@ import { join } from "path"
 import { useEffect, useState } from "react"
 import BaseCol from "../../components/base-col"
 import BaseRow from "../../components/base-row"
-import BlueButtonLink from "../../components/link/blue-button-link"
 import MarkdownBody from "../../components/markdown-body"
 import ContactInfo from "../../components/people/contact-info"
 import PersonHeaderHoz from "../../components/people/person-header-hoz"
@@ -11,6 +10,7 @@ import PersonHeaderImage from "../../components/people/person-header-image"
 import Publications from "../../components/publication/publications"
 import PubMedLink from "../../components/publication/pubmed-link"
 import VCenterCol from "../../components/v-center-col"
+import VCenterRow from "../../components/v-center-row"
 import QuoteStart from "../../icons/quote-start"
 import IPerson from "../../interfaces/person"
 import ContentLayout from "../../layouts/content-layout"
@@ -101,11 +101,11 @@ export default function Page({ person }: IProps) {
     <ContentLayout title={person.frontmatter.name} tab="People" crumbs={[]}>
       <></>
       <VCenterCol className="gap-y-16">
-        <SeventyLayout className="gap-y-8 2xl:gap-x-32" isRight={true}>
+        <SeventyLayout className="gap-y-8 2xl:gap-x-24" isRight={true}>
           <PersonHeaderHoz person={person} />
           <></>
         </SeventyLayout>
-        <SeventyLayout className="gap-y-8 2xl:gap-x-32" isRight={true}>
+        <SeventyLayout className="gap-y-8 2xl:gap-x-24" isRight={true}>
           <VCenterCol className="gap-y-8 md:gap-y-12">
             <BaseCol className="gap-y-4 rounded-2xl border border-gray-200 p-6 2xl:hidden">
               {/* <h1 className="text-xl">Get In Touch</h1> */}
@@ -129,24 +129,28 @@ export default function Page({ person }: IProps) {
 
             {!person.frontmatter.groups.lab.includes("Admin") && (
               <div>
-                <h1 className="text-3xl">Selected Publications</h1>
                 {publications.length > 0 && (
-                  <Publications
-                    publications={publications.slice(0, 15)}
-                    showAbstract={false}
-                    showMoreButton={false}
-                    showCount={true}
-                  />
+                  <>
+                    <h1 className="text-3xl">Selected Publications</h1>
+
+                    <Publications
+                      publications={publications.slice(0, 15)}
+                      showAbstract={false}
+                      showMoreButton={false}
+                      showCount={true}
+                      className="mt-4"
+                    />
+                  </>
                 )}
 
-                <BaseCol className="mt-8 items-center gap-y-2">
+                <VCenterRow className="mt-8 justify-center gap-x-4">
                   <span>
                     {publications.length > 0
                       ? "See more on"
-                      : "See all publications on"}
+                      : "See publications on"}
                   </span>
                   <PubMedLink person={person} />
-                </BaseCol>
+                </VCenterRow>
               </div>
             )}
           </VCenterCol>

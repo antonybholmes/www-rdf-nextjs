@@ -3,7 +3,7 @@ import cn from "../../lib/class-names"
 import RoundedButtonLink from "./rounded-button-link"
 
 export const BLUE_BUTTON_CLASSES =
-  "bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-sm font-semibold"
+  "bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-sm font-semibold"
 
 export default function BlueButtonLink({
   href,

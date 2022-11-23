@@ -65,7 +65,7 @@ export default function RadioButton({
         className={cn("color-ani w-4.5 overflow-hidden rounded-full border-2", [
           selected,
           "border-blue-500",
-          [hover, "border-blue-400", "border-gray-300"],
+          [hover, "border-blue-500", "border-gray-300"],
         ])}
       >
         {selected && (

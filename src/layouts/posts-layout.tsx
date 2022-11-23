@@ -1,5 +1,4 @@
 import { format, parseISO } from "date-fns"
-import BlackLink from "../components/link/black-link"
 import BlueIndexLink from "../components/link/blue-index-link"
 import ToBlueLink from "../components/link/to-blue-link"
 import MarkdownBody from "../components/markdown-body"
@@ -28,11 +27,11 @@ export default function PostsLayout({ title, posts }: IProps) {
               <div className="text-sm">
                 {format(parseISO(post.date), "LLLL d, yyyy")}
               </div>
-              <BlackLink href={url} ariaLabel="View article">
+              <ToBlueLink href={url} ariaLabel="View article">
                 <h2 className="text-2xl font-semibold lg:text-3xl">
                   {post.frontmatter.title}
                 </h2>
-              </BlackLink>
+              </ToBlueLink>
               <MarkdownBody html={post.excerpt} />
               <BlueIndexLink
                 href={url}

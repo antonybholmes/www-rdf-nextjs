@@ -2,10 +2,12 @@ import { useEffect, useState } from "react"
 import ChevronRightIcon from "../../icons/chevron-right"
 import IClassProps from "../../interfaces/class-props"
 import cn from "../../lib/class-names"
+import BaseRow from "../base-row"
 import HCenterCol from "../h-center-col"
 import BlackLink from "../link/black-link"
 import BlueLink from "../link/blue-link"
 import PillButton from "../link/pill-button"
+import VCenterRow from "../v-center-row"
 
 type AbstractProps = {
   publication: any
@@ -105,6 +107,7 @@ function BasePublication({
         <BlackLink
           ariaLabel="View article from PubMed ID"
           href={pubmedUrl(publication.pmid)}
+          underline={true}
         >
           {publication.pmid}
         </BlackLink>
@@ -130,59 +133,61 @@ function BasePublication({
 
   return (
     <article
-      className={cn(
-        "publication flex flex-row  items-start gap-x-2 text-sm",
-        className
-      )}
+      className={cn("publication flex flex-row gap-x-2 text-sm", className)}
     >
-      <HCenterCol className="mt-1 gap-y-2">
+      <HCenterCol className="mt-1 grow-0 gap-y-2">
         {showCount && (
-          <div className="flex-none grow-0 text-center text-gray-500">{`${
+          <div className="w-8 flex-none grow-0 text-center text-gray-500">{`${
             index + 1
           }`}</div>
         )}
-        <PillButton
-          ariaLabel="Show abstract"
-          className="h-7 w-7 min-w-7 hover:bg-gray-200"
-          onClick={() => setExpanded(!isExpanded)}
-        >
-          <ChevronRightIcon
-            className={cn("rotate-ani w-3 stroke-gray-500 stroke-2", [
-              isExpanded,
-              "rotate-90",
-            ])}
-          />
-        </PillButton>
       </HCenterCol>
+
       <div className="grow">
-        <div>
-          {/* <ul className="m-0 flex flex-row flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500">
+        <BaseRow className="gap-x-2">
+          <div className="grow">
+            {/* <ul className="m-0 flex flex-row flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500">
           {links.map(link => link)}
         </ul> */}
-          <h2 className="text-lg">
-            {url !== "" ? (
-              <BlueLink ariaLabel="View article" href={url} underline={true}>
-                {title}
-              </BlueLink>
-            ) : (
-              title
-            )}
-          </h2>
-          <p>{authors}</p>
-          {/* <p className="text-sm font-light capitalize text-green-600">
+            <h2 className="text-lg">
+              {url !== "" ? (
+                <BlueLink ariaLabel="View article" href={url} underline={true}>
+                  {title}
+                </BlueLink>
+              ) : (
+                title
+              )}
+            </h2>
+            <p>{authors}</p>
+            {/* <p className="text-sm font-light capitalize text-green-600">
         {publication.journal}. {publication.year}.
       </p> */}
 
-          <ul className="flex flex-row flex-wrap items-center gap-x-3 gap-y-1 text-emerald-700">
-            <li>
-              {publication.journal}. {publication.year}.
-            </li>
-          </ul>
+            <ul className="flex flex-row flex-wrap items-center gap-x-3 gap-y-1 text-emerald-700">
+              <li>
+                {publication.journal}. {publication.year}.
+              </li>
+            </ul>
 
-          <ul className="flex flex-row flex-wrap items-center gap-x-3 gap-y-1 text-emerald-700">
-            {links.map(link => link)}
-          </ul>
-        </div>
+            <ul className="flex flex-row flex-wrap items-center gap-x-3 gap-y-1 text-emerald-700">
+              {links.map(link => link)}
+            </ul>
+          </div>
+          <VCenterRow>
+            <PillButton
+              ariaLabel="Show abstract"
+              className="h-7 w-7 min-w-7 stroke-gray-400 hover:bg-gray-200 hover:stroke-gray-900"
+              onClick={() => setExpanded(!isExpanded)}
+            >
+              <ChevronRightIcon
+                className={cn("rotate-ani w-3  stroke-2", [
+                  isExpanded,
+                  "rotate-90",
+                ])}
+              />
+            </PillButton>
+          </VCenterRow>
+        </BaseRow>
 
         {isExpanded && publication.abstract !== "" && (
           <Abstract publication={publication} isExpanded={isExpanded} />

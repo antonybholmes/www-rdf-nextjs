@@ -1,9 +1,9 @@
+import { gsap } from "gsap"
 import { useEffect, useRef, useState } from "react"
 import ILink from "../../interfaces/link"
 import cn from "../../lib/class-names"
 import BaseLink from "../link/base-link"
 import VCenterCol from "../v-center-col"
-import { gsap } from "gsap"
 const BAR_WIDTH = "2px"
 
 export const LINK_CLS = cn(
@@ -42,8 +42,7 @@ export default function HeaderLink({ link, selected, onClick }: IProps) {
         left: 0,
         width: "100%",
         opacity: 0,
-        delay: 0.2,
-        duration: 0.2,
+        duration: 0.3,
       })
     }
   }, [selected])
