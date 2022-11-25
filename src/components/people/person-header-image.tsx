@@ -64,7 +64,7 @@ export default function PersonHeaderImage({ person }: IProps) {
           >
             <div
               className={cn(
-                " bg-black/50 p-4 text-sm text-white backdrop-blur transition-opacity duration-500 lg:text-base",
+                " bg-black/50 p-4 text-sm text-white backdrop-blur transition-opacity duration-500",
                 [hover, "opacity-100", "opacity-0"]
               )}
             >

@@ -12,7 +12,10 @@ export default function ToBlackLink({
     <BaseLink
       href={href}
       ariaLabel={ariaLabel}
-      className={cn(`color-ani text-blue-500 hover:text-gray-900`, className)}
+      className={cn(
+        `color-ani fill-blue-500 text-blue-500 hover:fill-gray-900 hover:text-gray-900`,
+        className
+      )}
     >
       {children}
     </BaseLink>

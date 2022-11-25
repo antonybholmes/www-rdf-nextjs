@@ -8,6 +8,7 @@ import cn from "../lib/class-names"
 import { toUpperCase } from "../lib/text"
 import BlueLink from "./link/blue-link"
 import ToBlackLink from "./link/to-black-link"
+import VCenterRow from "./v-center-row"
 
 const EXCLUDE = ["Tag", "Section", "Page"]
 
@@ -56,9 +57,9 @@ export default function Breadcrumb({
 
   ret.push(
     <li key="home">
-      <BlueLink href="/" ariaLabel="Home">
+      <ToBlackLink href="/" ariaLabel="Home">
         <HomeIcon className="w-4" />
-      </BlueLink>
+      </ToBlackLink>
       {/* <ToBlueLink href="/" ariaLabel="Home">
         Home
       </ToBlueLink> */}
@@ -80,13 +81,15 @@ export default function Breadcrumb({
   }
 
   return (
-    <ul
-      className={cn(
-        "flex flex-row flex-nowrap items-center gap-x-2 stroke-gray-500 text-sm font-medium text-gray-400/80",
-        className
-      )}
-    >
-      {ret}
-    </ul>
+    <VCenterRow>
+      <ul
+        className={cn(
+          "color-ani -ml-4 flex flex-row flex-nowrap items-center gap-x-2 rounded-full border border-transparent stroke-gray-500 px-4 py-2 text-sm font-medium text-gray-400/80 hover:border-gray-200",
+          className
+        )}
+      >
+        {ret}
+      </ul>
+    </VCenterRow>
   )
 }
