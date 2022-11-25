@@ -25,7 +25,7 @@ const YearSelector = ({ x, y, r = 8, onMouseUp, onMouseDown }) => {
       r={r}
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
-      className="cursor-pointer fill-white stroke-sky-400 stroke-2"
+      className="cursor-pointer fill-white stroke-emerald-400 stroke-2"
     />
   )
 }
@@ -212,13 +212,13 @@ export default function PubRangeSlider({
           >
             <defs>
               <linearGradient id="g1" gradientTransform="rotate(90)">
-                <stop offset="5%" stopColor="#0ea5e9" />
-                <stop offset="95%" stopColor="#38bdf8" />
+                <stop offset="5%" stopColor="#10b981" />
+                <stop offset="95%" stopColor="#34d399" />
               </linearGradient>
 
               <linearGradient id="g2" gradientTransform="rotate(90)">
-                <stop offset="5%" stopColor="#0369a1" />
-                <stop offset="95%" stopColor="#0ea5e9" />
+                <stop offset="5%" stopColor="#059669" />
+                <stop offset="95%" stopColor="#10b981" />
               </linearGradient>
             </defs>
 
@@ -252,7 +252,7 @@ export default function PubRangeSlider({
                 x2={x2}
                 y1={y}
                 y2={y}
-                className="stroke-sky-400 stroke-2"
+                className="stroke-emerald-400 stroke-2"
               />
             )}
 
