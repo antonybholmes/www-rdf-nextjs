@@ -68,14 +68,14 @@ export default function PubRangeSlider({
 
   const onMouseDownYear1 = (e: any) => {
     // @ts-ignore
-    ref.current.addEventListener("mousemove", onMouseMoveYear1)
-    document.addEventListener("mouseup", onMouseUpYear1)
+    window.addEventListener("mousemove", onMouseMoveYear1)
+    window.addEventListener("mouseup", onMouseUpYear1)
   }
 
   const onMouseUpYear1 = () => {
     // @ts-ignore
-    ref.current.removeEventListener("mousemove", onMouseMoveYear1)
-    document.removeEventListener("mouseup", onMouseUpYear1)
+    window.removeEventListener("mousemove", onMouseMoveYear1)
+    window.removeEventListener("mouseup", onMouseUpYear1)
   }
 
   function onMouseMoveYear2(e: any) {
@@ -86,14 +86,14 @@ export default function PubRangeSlider({
 
   const onMouseDownYear2 = (e: any) => {
     // @ts-ignore
-    ref.current.addEventListener("mousemove", onMouseMoveYear2)
-    document.addEventListener("mouseup", onMouseUpYear2)
+    window.addEventListener("mousemove", onMouseMoveYear2)
+    window.addEventListener("mouseup", onMouseUpYear2)
   }
 
   const onMouseUpYear2 = () => {
     // @ts-ignore
-    ref.current.removeEventListener("mousemove", onMouseMoveYear2)
-    document.removeEventListener("mouseup", onMouseUpYear2)
+    window.removeEventListener("mousemove", onMouseMoveYear2)
+    window.removeEventListener("mouseup", onMouseUpYear2)
   }
 
   const onMouseEnter = (e: any) => {

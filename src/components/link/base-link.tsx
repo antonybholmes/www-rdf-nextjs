@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { useEffect } from "react"
+import useMouseUpListener from "../../hooks/use-mouseup-listener"
 import IHoverProps from "../../interfaces/hover-props"
 import ILinkProps from "../../interfaces/link-props"
 import IMouseProps from "../../interfaces/mouse-props"
@@ -23,13 +23,7 @@ function BaseLink({
   onMouseDown,
   children,
 }: IProps) {
-  useEffect(() => {
-    window.addEventListener("mouseup", onMouseUp)
-
-    return () => {
-      window.removeEventListener("mouseup", onMouseUp)
-    }
-  }, [])
+  useMouseUpListener(onMouseUp)
 
   if (!ariaLabel) {
     ariaLabel = `Click to visit ${href}`
