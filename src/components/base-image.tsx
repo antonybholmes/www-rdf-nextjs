@@ -11,7 +11,7 @@ export interface IImageProps extends IClassProps {
   root?: string
 }
 
-const BaseImage = ({
+export default function BaseImage({
   src,
   alt,
   size = [640, 640],
@@ -20,7 +20,7 @@ const BaseImage = ({
   decoding = "async",
   className,
   style,
-}: IImageProps) => {
+}: IImageProps) {
   if (sizes.length === 0) {
     sizes = [size[0] / 8, size[0] / 4, size[0] / 2, size[0]]
   }
@@ -53,5 +53,3 @@ const BaseImage = ({
     </picture>
   )
 }
-
-export default BaseImage
