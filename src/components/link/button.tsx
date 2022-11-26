@@ -1,3 +1,4 @@
+import useMouseUpListener from "../../hooks/use-mouseup-listener"
 import IAriaProps from "../../interfaces/aria-props"
 import IChildrenProps from "../../interfaces/children-props"
 import IMouseProps from "../../interfaces/mouse-props"
@@ -18,13 +19,14 @@ export default function Button({
   style,
   children,
 }: IButtonProps) {
+  useMouseUpListener(onMouseUp)
+
   return (
     <button
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onMouseDown={onMouseDown}
-      onMouseUp={onMouseUp}
       aria-label={ariaLabel}
       className={cn(BASE_LINK_CLS, BUTTON_CLS, className)}
       style={style}

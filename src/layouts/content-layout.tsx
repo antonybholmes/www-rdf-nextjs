@@ -1,11 +1,10 @@
-import ContentDiv from "../components/content-div"
 import Breadcrumb from "../components/breadcrumb"
+import ContentDiv from "../components/content-div"
 import PageTitle from "../components/page-title"
 import ICrumbProps from "../interfaces/crumb-props"
 import ILayoutProps from "../interfaces/layout-props"
 import IPageTitleProps from "../interfaces/page-title-props"
 import BaseLayout from "./base-layout"
-import cn from "../lib/class-names"
 
 export interface IProps extends ILayoutProps, ICrumbProps, IPageTitleProps {
   headerClassName?: string

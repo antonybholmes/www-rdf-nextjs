@@ -14,24 +14,13 @@ export default function SecondaryButton({
   const [hover, setHover] = useState(false)
   const [down, setDown] = useState(false)
 
-  useEffect(() => {
-    window.addEventListener("mouseup", onMouseUp)
-
-    return () => {
-      window.removeEventListener("mouseup", onMouseUp)
-    }
-  }, [])
-
-  function onMouseUp() {
-    setDown(false)
-  }
-
   return (
     <OutlineRoundedButton
       onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onMouseDown={() => setDown(true)}
+      onMouseUp={() => setDown(false)}
       ariaLabel={ariaLabel}
       className={cn(
         SECONDARY_BUTTON_CLS,
